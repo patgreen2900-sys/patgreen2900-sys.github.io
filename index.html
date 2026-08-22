@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrick H. Green — Channel Sales Executive</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #111D33;
+  --slate: #2E3F5C;
+  --gold: #B8922A;
+  --gold-light: #D4A843;
+  --gold-pale: #F0E4C2;
+  --warm-white: #FAFAF8;
+  --light-gray: #F2F2EF;
+  --mid-gray: #8A8A82;
+  --dark-text: #1A1A18;
+  --rule: #D4C9A8;
+  --white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--warm-white);
+  color: var(--dark-text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--navy-deep);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 60px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+
+.nav-brand span { color: var(--gold-light); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold-light); }
+
+/* ── PAGES ── */
+.page { display: none; padding-top: 60px; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ── HOME ── */
+.hero {
+  background: var(--navy);
+  min-height: calc(100vh - 60px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-left {
+  padding: 80px 60px 80px 80px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.hero-name span { color: var(--gold-light); }
+
+.hero-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+.hero-statement {
+  font-size: 17px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 480px;
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: var(--gold-light); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+.hero-right {
+  background: var(--navy-deep);
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-photo-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-photo-wrap img {
+  width: 420px;
+  height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero-photo-border {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  border: 2px solid var(--gold);
+  z-index: 1;
+}
+
+.stats-strip {
+  background: var(--gold);
+  padding: 32px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid rgba(27,42,74,0.2);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.home-intro {
+  padding: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.intro-text {
+  font-size: 16px;
+  color: #3A3A38;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.channels-grid {
+  background: var(--navy);
+  padding: 64px 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.channel-card {
+  background: var(--slate);
+  padding: 36px 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.channel-card:hover {
+  background: var(--navy-deep);
+  border-left-color: var(--gold);
+}
+
+.channel-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.channel-card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.channel-card-link {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 16px;
+  display: block;
+}
+
+/* ── RESUMES PAGE ── */
+.page-header {
+  background: var(--navy);
+  padding: 60px 80px 48px;
+  border-bottom: 3px solid var(--gold);
+}
+
+.page-header-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.page-header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.page-header-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.notation-bar {
+  background: var(--gold-pale);
+  border-left: 4px solid var(--gold);
+  padding: 14px 80px;
+  font-size: 13px;
+  color: #5A4A1A;
+  font-style: italic;
+}
+
+/* RESUME TABS */
+.resume-tabs-wrap {
+  background: var(--light-gray);
+  padding: 0 80px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  gap: 0;
+}
+
+.resume-tab {
+  padding: 18px 28px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.resume-tab:hover { color: var(--navy); }
+
+.resume-tab.active {
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+
+.resume-panels {
+  padding: 48px 80px 64px;
+}
+
+.resume-panel { display: none; }
+.resume-panel.active { display: block; }
+
+.resume-download-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.btn-download {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-download:hover { background: var(--gold); color: var(--navy-deep); }
+
+/* RESUME CARD */
+.resume-card {
+  background: var(--white);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.r-sidebar {
+  background: var(--navy);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.r-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.r-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--gold);
+}
+
+.r-name-block { text-align: center; }
+
+.r-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.r-channel-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  line-height: 1.5;
+}
+
+.r-section-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(212,168,67,0.3);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.r-contact-item {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.r-contact-item strong {
+  display: block;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.r-contact-item a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+}
+
+.r-skills {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.r-skills li {
+  font-size: 10px;
+  color: rgba(255,255,255,0.78);
+  padding-left: 10px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.r-skills li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px;
+  width: 3px; height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.r-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.r-tool {
+  font-size: 8.5px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+  padding: 3px 6px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* RESUME MAIN */
+.r-main {
+  padding: 36px 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.r-section-head {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1.5px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+.r-summary {
+  font-size: 12px;
+  color: #2A2A28;
+  line-height: 1.7;
+}
+
+.r-summary p + p { margin-top: 8px; }
+
+.r-job { margin-bottom: 16px; }
+.r-job:last-child { margin-bottom: 0; }
+
+.r-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2px;
+}
+
+.r-job-co {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+.r-job-dates {
+  font-size: 9.5px;
+  color: var(--mid-gray);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.r-job-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.r-job-loc {
+  font-size: 9.5px;
+  color: var(--mid-gray);
+  margin-bottom: 4px;
+}
+
+.r-job-context {
+  font-size: 10.5px;
+  color: #3A3A38;
+  font-style: italic;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.r-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.r-bullets li {
+  font-size: 10.5px;
+  color: #2A2A28;
+  padding-left: 11px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.r-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px;
+  width: 3px; height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.r-engagement {
+  margin-top: 8px;
+  padding-left: 12px;
+  border-left: 2px solid var(--rule);
+}
+
+.r-eng-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2px;
+}
+
+.r-eng-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.r-eng-dates {
+  font-size: 9px;
+  color: var(--mid-gray);
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.r-eng-co {
+  font-size: 9.5px;
+  color: var(--mid-gray);
+  margin-bottom: 4px;
+}
+
+.r-edu-item {
+  font-size: 11px;
+  color: #2A2A28;
+  line-height: 1.5;
+}
+
+.r-edu-item strong { color: var(--navy); }
+
+.r-act-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.r-act-list li {
+  font-size: 10.5px;
+  color: var(--mid-gray);
+  padding-left: 10px;
+  position: relative;
+}
+
+.r-act-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ── BACKGROUND PAGE ── */
+.bg-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+.bio-section { margin-bottom: 48px; }
+
+.bio-lead {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.bio-text {
+  font-size: 15px;
+  color: #3A3A38;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.timeline {
+  border-left: 2px solid var(--rule);
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timeline-item { position: relative; }
+
+.timeline-dot {
+  position: absolute;
+  left: -38px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--warm-white);
+}
+
+.timeline-dates {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.timeline-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.timeline-co {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-bottom: 10px;
+}
+
+.timeline-text {
+  font-size: 14px;
+  color: #3A3A38;
+  line-height: 1.7;
+}
+
+/* ── CONTENT PAGE ── */
+.content-body {
+  padding: 64px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.series-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.series-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-color: var(--gold);
+}
+
+.series-number {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.series-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--navy);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.series-desc {
+  font-size: 13px;
+  color: #4A4A48;
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.series-meta {
+  font-size: 11px;
+  color: var(--mid-gray);
+  font-style: italic;
+}
+
+.series-link {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.series-link:hover { color: var(--navy); }
+
+.content-cta {
+  background: var(--navy);
+  padding: 48px;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.content-cta-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.content-cta-text strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+/* ── CONTACT ── */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 60px);
+}
+
+.contact-left {
+  background: var(--navy);
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-intro {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+.contact-intro span { color: var(--gold-light); }
+
+.contact-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-detail-item strong {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.contact-detail-item a,
+.contact-detail-item span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+
+.contact-right {
+  background: var(--light-gray);
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 440px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-group label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--dark-text);
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-submit {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.form-submit:hover { background: var(--gold); color: var(--navy-deep); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy-deep);
+  border-top: 2px solid var(--gold);
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.footer-links a:hover { color: var(--gold-light); }
+
+/* ── PRINT ── */
+@media print {
+  nav, footer, .resume-download-bar, .resume-tabs-wrap,
+  .page-header, .notation-bar { display: none !important; }
+  .page { display: block !important; padding-top: 0; }
+  .resume-panel { display: none !important; }
+  .resume-panel.print-target { display: block !important; }
+  .resume-card { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Patrick H. <span>Green</span></div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a onclick="showPage('resumes')" id="nav-resumes">Resumes</a></li>
+    <li><a onclick="showPage('background')" id="nav-background">Background</a></li>
+    <li><a onclick="showPage('content')" id="nav-content">Content</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════ HOME -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Channel Sales Executive — Memphis, TN</div>
+      <h1 class="hero-name">Patrick H.<br><span>Green</span></h1>
+      <div class="hero-title">25+ Years Building Rep Networks &amp; Dealer Channels</div>
+      <p class="hero-statement">
+        I build what manufacturers need to compete in the U.S. market: independent rep networks, dealer programs, and the channel infrastructure that produces revenue at scale.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="showPage('resumes')">View My Resumes</button>
+        <button class="btn-outline" onclick="showPage('contact')">Get in Touch</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <img src="patrick-headshot.png" alt="Patrick H. Green" />
+        <div class="hero-photo-border"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Years in B2B Channel Sales</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">42</div>
+      <div class="stat-label">States Covered at Tremain</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$15M</div>
+      <div class="stat-label">Annual Rep Network Revenue</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">40+</div>
+      <div class="stat-label">Rep Firms Led at Compatico</div>
+    </div>
+  </div>
+
+  <div class="home-intro">
+    <div class="section-eyebrow">What I Do</div>
+    <h2 class="section-title">I build from zero.<br>That is the whole story.</h2>
+    <p class="intro-text">Manufacturers entering the U.S. market need someone who has done this before — someone who knows how to recruit the right rep firms, build the dealer relationships, and create the channel infrastructure that turns product into revenue. That is what I have done, repeatedly, across commercial furniture, contract interiors, lighting, and electrical distribution.</p>
+    <p class="intro-text">At Tremain, I built a national rep network from scratch to 30+ partners across 42 states in 18 months. At Compatico, I led a 40+ rep network producing $12–15M annually for over a decade. At MOD, I built the East region from zero to 20+ rep firms across 20 states with 40% year-over-year growth. The method is the same every time. The results speak for themselves.</p>
+  </div>
+
+  <div class="channels-grid">
+    <div class="channel-card" onclick="showResumeTab('furniture')">
+      <div class="channel-card-title">Commercial Furniture &amp; Contract Interiors</div>
+      <div class="channel-card-desc">25+ years across seating, desking, panels, acoustical products, and ancillary categories. Deep A&amp;D channel relationships and NeoCon experience.</div>
+      <span class="channel-card-link">View Resume →</span>
+    </div>
+    <div class="channel-card" onclick="showResumeTab('lighting')">
+      <div class="channel-card-title">Lighting &amp; Electrical Distribution</div>
+      <div class="channel-card-desc">Commercial and specification lighting sales through independent rep networks, with OEM and private label program development.</div>
+      <span class="channel-card-link">View Resume →</span>
+    </div>
+    <div class="channel-card" onclick="showResumeTab('channel')">
+      <div class="channel-card-title">General Channel Sales Leadership</div>
+      <div class="channel-card-desc">Cross-vertical expertise in building and scaling independent rep networks, dealer programs, and national GTM strategies for manufacturers.</div>
+      <span class="channel-card-link">View Resume →</span>
+    </div>
+    <div class="channel-card" onclick="showResumeTab('consulting')">
+      <div class="channel-card-title">Consulting &amp; Fractional Channel Executive</div>
+      <div class="channel-card-desc">Southern Solutions Consulting engages manufacturers who need senior-level channel sales leadership without a full-time hire.</div>
+      <span class="channel-card-link">View Resume →</span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ RESUMES -->
+<div id="page-resumes" class="page">
+
+  <div class="page-header">
+    <div class="page-header-eyebrow">Experience by Channel</div>
+    <h1 class="page-header-title">My Resumes</h1>
+    <p class="page-header-sub">Select the channel that matches your search. Each resume is written for that specific audience. For a specific opportunity or job description, contact me directly — I tailor every submission to the role.</p>
+  </div>
+
+  <div class="notation-bar">
+    These resumes reflect core experience by channel. For specific opportunities, each version is tailored to the job description.
+  </div>
+
+  <div class="resume-tabs-wrap">
+    <div class="resume-tab active" onclick="switchResumeTab('furniture', this)">Commercial Furniture &amp; A&amp;D</div>
+    <div class="resume-tab" onclick="switchResumeTab('lighting', this)">Lighting &amp; Electrical</div>
+    <div class="resume-tab" onclick="switchResumeTab('channel', this)">Channel Sales Leadership</div>
+    <div class="resume-tab" onclick="switchResumeTab('consulting', this)">Consulting / Fractional</div>
+  </div>
+
+  <div class="resume-panels">
+
+    <!-- ── FURNITURE TAB ── -->
+    <div id="panel-furniture" class="resume-panel active">
+      <div class="resume-download-bar">
+        <button class="btn-download" onclick="printResume('furniture')">⬇ Download This Resume</button>
+      </div>
+      <div class="resume-card" id="resume-furniture">
+        <aside class="r-sidebar">
+          <div class="r-photo"><img src="patrick-headshot.png" alt="Patrick H. Green" /></div>
+          <div class="r-name-block">
+            <div class="r-name">Patrick H. Green</div>
+            <div class="r-channel-tag">VP of Sales &amp; Channel Development<br>Commercial Furniture &amp; Contract Interiors</div>
+          </div>
+          <div>
+            <div class="r-section-label">Contact</div>
+            <div class="r-contact-item"><strong>Email</strong>green.patrickh@outlook.com</div>
+            <div class="r-contact-item"><strong>Phone</strong>(901) 232-3231</div>
+            <div class="r-contact-item"><strong>Location</strong>Memphis, TN — Remote<br>Up to 75% Travel</div>
+            <div class="r-contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/patrick-green-343a0810/">linkedin.com/in/patrick-green</a></div>
+            <div class="r-contact-item"><strong>Website</strong>patrickhgreen.com</div>
+          </div>
+          <div>
+            <div class="r-section-label">Core Competencies</div>
+            <ul class="r-skills">
+              <li>Independent Rep Network Development</li>
+              <li>Dealer Channel Strategy &amp; Enablement</li>
+              <li>A&amp;D Channel Engagement</li>
+              <li>Contract Furniture Sales Leadership</li>
+              <li>OEM &amp; Private Label Programs</li>
+              <li>National GTM Execution</li>
+              <li>Rep Recruiting, Onboarding &amp; Coaching</li>
+              <li>NeoCon &amp; Trade Show Leadership</li>
+              <li>Key Account &amp; Fortune 500 Management</li>
+              <li>Pricing Strategy &amp; Margin Management</li>
+              <li>FF&amp;E Procurement &amp; Project Coordination</li>
+              <li>Pipeline Forecasting &amp; CRM Reporting</li>
+            </ul>
+          </div>
+          <div>
+            <div class="r-section-label">Tools &amp; Systems</div>
+            <div class="r-tools">
+              <span class="r-tool">Salesforce</span><span class="r-tool">HubSpot</span>
+              <span class="r-tool">Giza/CAP</span><span class="r-tool">Salsify</span>
+              <span class="r-tool">Tableau</span><span class="r-tool">Excel/VBA</span>
+              <span class="r-tool">AutoCAD</span><span class="r-tool">PowerPoint</span>
+            </div>
+          </div>
+          <div>
+            <div class="r-section-label">Education</div>
+            <div class="r-contact-item"><strong>University of Memphis</strong>Business Administration</div>
+          </div>
+        </aside>
+        <main class="r-main">
+          <section>
+            <div class="r-section-head">Professional Summary</div>
+            <div class="r-summary">
+              <p>Sales executive with 25+ years building and leading independent rep networks, dealer channels, and national sales programs in commercial furniture, contract interiors, and the A&amp;D channel. Known for taking manufacturers from zero U.S. coverage to national scale — recruiting, onboarding, and coaching rep firms across 40+ states while personally driving revenue from the field.</p>
+              <p style="margin-top:8px">Deep experience across seating, desking, panels, acoustical products, and ancillary categories. Active NeoCon and HD Expo presence. Consistent track record managing $12M–$15M rep networks, closing $1M+ Fortune 500 contracts, and building the infrastructure manufacturers need to compete in the contract channel.</p>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Professional Experience</div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Southern Solutions Consulting</div><div class="r-job-title">President &amp; Principal Consultant</div></div>
+                <div class="r-job-dates">Dec 2005 – Present</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <div class="r-job-context">B2B channel sales and dealer network development consultancy. Contract engagements place Patrick inside client organizations at the VP and Director level to build rep networks, launch dealer programs, and drive national revenue.</div>
+              <ul class="r-bullets">
+                <li>Introduced AIS to the Memphis market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
+                <li>Provided FF&amp;E procurement, interior design collaboration, and project coordination to commercial furniture dealers throughout the Southeast.</li>
+              </ul>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">AI Sales Productivity Training — Contract</div><div class="r-eng-dates">May 2026 – Aug 2026</div></div>
+                <div class="r-eng-co">CAT Global</div>
+                <ul class="r-bullets"><li>Engaged to train CAT Global's sales organization on AI tool adoption to increase productivity and sales execution efficiency.</li></ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
+                <div class="r-eng-co">The Ubique Group / Flash Furniture — Remote</div>
+                <ul class="r-bullets">
+                  <li>Managed ISG dealer program serving 600+ members nationwide; reintroduced personal outreach into a historically digital-only model.</li>
+                  <li>Designed and validated a complete contract dealer pricing framework across 8,907 SKUs, producing a 42% GP floor and 52% weighted average GP.</li>
+                  <li>Built a custom Excel/VBA pipeline tracker managing 138+ active quotes and ~$1M in tracked pipeline with a 46% win rate.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Director of Sales, East Region — Contract</div><div class="r-eng-dates">Feb 2024 – Apr 2025</div></div>
+                <div class="r-eng-co">MOD Power &amp; Lighting — Remote</div>
+                <ul class="r-bullets">
+                  <li>Built East region rep network from zero to 20+ independent firms across 20+ states; drove 40% year-over-year growth.</li>
+                  <li>Scaled OEM and private label initiatives, increasing program adoption 25% among key accounts.</li>
+                  <li>Elevated team win rates 15% through one-on-one rep coaching and targeted product training.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
+                <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
+                <ul class="r-bullets">
+                  <li>Built U.S. national rep network from zero to 30+ partners across 42 states within 18 months, generating $7–$10M over three years.</li>
+                  <li>Developed OEM and private label programs producing $2M+ in annualized revenue from manufacturing partnerships.</li>
+                  <li>Negotiated multi-year contract furniture agreements with major commercial clients, fueling 30% year-over-year growth.</li>
+                  <li>Represented Tremain at NeoCon and HD Expo; drove expansion into healthcare, education, and commercial sectors.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Compatico, Inc.</div><div class="r-job-title">National Sales Director | Director, Giza 2020/CAP Program | Regional Sales Manager</div></div>
+                <div class="r-job-dates">Apr 2007 – Aug 2018</div>
+              </div>
+              <div class="r-job-loc">Grand Rapids, MI — Remote</div>
+              <div class="r-job-context">Commercial furniture manufacturer — panel systems, seating, and acoustical solutions. Led national sales through a 40+ independent rep network.</div>
+              <ul class="r-bullets">
+                <li>Led a 40+ rep network generating $12–15M annually; secured $1M+ contracts with Fortune 500 firms through relationship-based selling.</li>
+                <li>Developed rep onboarding programs reducing ramp-up time 30%; conducted performance reviews and field ride-alongs across the full network.</li>
+                <li>Directed Giza 2020/CAP design software program, reducing dealer proposal time 40% and increasing bid conversions 25%.</li>
+                <li>Spearheaded national rollout of HushTiles™ acoustic wall solution; expanded dealer network across 10+ states, growing regional revenue 35%.</li>
+                <li>Represented Compatico at NeoCon, IFMA, and regional design expos; served as exclusive Byrne Electrical distributor.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Office Furniture Wholesale</div><div class="r-job-title">Owner &amp; President</div></div>
+                <div class="r-job-dates">Jan 1993 – Dec 2005</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <ul class="r-bullets">
+                <li>Built and operated a Memphis retail and B2B furniture operation; secured long-term contracts with Memphis City Schools, Shelby County Schools, St. Jude, and MLGW.</li>
+                <li>Grew business 30% annually through bundled solutions and direct B2B outreach; managed a team of 8.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Leadership &amp; Community</div>
+            <ul class="r-act-list">
+              <li>Germantown Municipal School Design Review Committee</li>
+              <li>Liberty Bowl Hospitality Committee Volunteer</li>
+              <li>Alumni Class President — Christian Brothers High School</li>
+              <li>Volunteer — Habitat for Humanity</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ── LIGHTING TAB ── -->
+    <div id="panel-lighting" class="resume-panel">
+      <div class="resume-download-bar">
+        <button class="btn-download" onclick="printResume('lighting')">⬇ Download This Resume</button>
+      </div>
+      <div class="resume-card" id="resume-lighting">
+        <aside class="r-sidebar">
+          <div class="r-photo"><img src="patrick-headshot.png" alt="Patrick H. Green" /></div>
+          <div class="r-name-block">
+            <div class="r-name">Patrick H. Green</div>
+            <div class="r-channel-tag">Director of Sales<br>Lighting &amp; Electrical Distribution</div>
+          </div>
+          <div>
+            <div class="r-section-label">Contact</div>
+            <div class="r-contact-item"><strong>Email</strong>green.patrickh@outlook.com</div>
+            <div class="r-contact-item"><strong>Phone</strong>(901) 232-3231</div>
+            <div class="r-contact-item"><strong>Location</strong>Memphis, TN — Remote<br>Up to 75% Travel</div>
+            <div class="r-contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/patrick-green-343a0810/">linkedin.com/in/patrick-green</a></div>
+            <div class="r-contact-item"><strong>Website</strong>patrickhgreen.com</div>
+          </div>
+          <div>
+            <div class="r-section-label">Core Competencies</div>
+            <ul class="r-skills">
+              <li>Commercial Lighting Rep Network Development</li>
+              <li>Electrical Distribution Channel Strategy</li>
+              <li>OEM &amp; Private Label Program Development</li>
+              <li>Independent Rep Recruiting &amp; Coaching</li>
+              <li>Specification Sales — A&amp;D &amp; Commercial</li>
+              <li>Multi-State Territory Management</li>
+              <li>National GTM Execution</li>
+              <li>Key Account Management</li>
+              <li>Product Training &amp; Field Enablement</li>
+              <li>Pipeline Forecasting &amp; CRM Management</li>
+              <li>Dealer Program Development</li>
+              <li>Pricing Strategy &amp; Margin Management</li>
+            </ul>
+          </div>
+          <div>
+            <div class="r-section-label">Tools &amp; Systems</div>
+            <div class="r-tools">
+              <span class="r-tool">Salesforce</span><span class="r-tool">HubSpot</span>
+              <span class="r-tool">Tableau</span><span class="r-tool">Excel/VBA</span>
+              <span class="r-tool">Salsify</span><span class="r-tool">PowerPoint</span>
+            </div>
+          </div>
+          <div>
+            <div class="r-section-label">Education</div>
+            <div class="r-contact-item"><strong>University of Memphis</strong>Business Administration</div>
+          </div>
+        </aside>
+        <main class="r-main">
+          <section>
+            <div class="r-section-head">Professional Summary</div>
+            <div class="r-summary">
+              <p>Sales executive with proven experience building independent rep networks and driving revenue growth in commercial lighting and electrical distribution channels. At MOD Power &amp; Lighting, built the East region from zero to 20+ rep firms across 20+ states, delivering 40% year-over-year growth through hands-on rep development, OEM program expansion, and direct field engagement.</p>
+              <p style="margin-top:8px">Brings cross-channel depth from commercial furniture and contract interiors — including specification selling to architects and designers, dealer channel management, and national GTM execution — directly transferable to lighting and electrical distribution markets.</p>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Professional Experience</div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Southern Solutions Consulting</div><div class="r-job-title">President &amp; Principal Consultant</div></div>
+                <div class="r-job-dates">Dec 2005 – Present</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <div class="r-job-context">B2B channel sales consultancy. Contract engagements place Patrick inside client organizations at the VP and Director level to build rep networks and drive national revenue.</div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Director of Sales, East Region — Contract</div><div class="r-eng-dates">Feb 2024 – Apr 2025</div></div>
+                <div class="r-eng-co">MOD Power &amp; Lighting — Remote</div>
+                <ul class="r-bullets">
+                  <li>Built East region independent rep network from zero to 20+ firms across 20+ states; drove 40% year-over-year growth in commercial and ancillary markets.</li>
+                  <li>Scaled OEM and private label initiatives, increasing program adoption and market penetration 25% among key accounts.</li>
+                  <li>Elevated team win rates 15% through one-on-one rep coaching, in-person product training, and targeted sample kit deployment.</li>
+                  <li>Managed multi-region sales operations with 75% travel across 20+ states.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
+                <div class="r-eng-co">The Ubique Group / Flash Furniture — Remote</div>
+                <ul class="r-bullets">
+                  <li>Managed national dealer program serving 600+ members; built complete pricing framework across 8,907 SKUs producing 42% GP floor.</li>
+                  <li>Built custom Excel/VBA pipeline tracker managing 138+ active quotes and ~$1M in pipeline with 46% win rate.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
+                <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
+                <ul class="r-bullets">
+                  <li>Built national rep network from zero to 30+ partners across 42 states in 18 months generating $7–$10M; directly applicable rep development and field coaching methodology.</li>
+                  <li>Developed OEM and private label programs producing $2M+ in annualized revenue.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Compatico, Inc.</div><div class="r-job-title">National Sales Director | Regional Sales Manager</div></div>
+                <div class="r-job-dates">Apr 2007 – Aug 2018</div>
+              </div>
+              <div class="r-job-loc">Grand Rapids, MI — Remote</div>
+              <ul class="r-bullets">
+                <li>Led specification-based selling through 40+ rep network to architects, designers, and commercial clients — directly transferable to lighting specification channels.</li>
+                <li>Served as exclusive Byrne Electrical distributor within the dealer network; managed electrical integration into panel systems and commercial workspaces.</li>
+                <li>Expanded dealer and rep network across 10+ states with 35% regional revenue growth; managed 100+ accounts.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Office Furniture Wholesale</div><div class="r-job-title">Owner &amp; President</div></div>
+                <div class="r-job-dates">Jan 1993 – Dec 2005</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <ul class="r-bullets">
+                <li>Built and operated B2B operation with institutional contracts including Memphis City Schools, Shelby County Schools, St. Jude, and MLGW.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Leadership &amp; Community</div>
+            <ul class="r-act-list">
+              <li>Germantown Municipal School Design Review Committee</li>
+              <li>Liberty Bowl Hospitality Committee Volunteer</li>
+              <li>Alumni Class President — Christian Brothers High School</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ── CHANNEL TAB ── -->
+    <div id="panel-channel" class="resume-panel">
+      <div class="resume-download-bar">
+        <button class="btn-download" onclick="printResume('channel')">⬇ Download This Resume</button>
+      </div>
+      <div class="resume-card" id="resume-channel">
+        <aside class="r-sidebar">
+          <div class="r-photo"><img src="patrick-headshot.png" alt="Patrick H. Green" /></div>
+          <div class="r-name-block">
+            <div class="r-name">Patrick H. Green</div>
+            <div class="r-channel-tag">VP / Director of Sales<br>Channel Sales Leadership</div>
+          </div>
+          <div>
+            <div class="r-section-label">Contact</div>
+            <div class="r-contact-item"><strong>Email</strong>green.patrickh@outlook.com</div>
+            <div class="r-contact-item"><strong>Phone</strong>(901) 232-3231</div>
+            <div class="r-contact-item"><strong>Location</strong>Memphis, TN — Remote<br>Up to 75% Travel</div>
+            <div class="r-contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/patrick-green-343a0810/">linkedin.com/in/patrick-green</a></div>
+            <div class="r-contact-item"><strong>Website</strong>patrickhgreen.com</div>
+          </div>
+          <div>
+            <div class="r-section-label">Core Competencies</div>
+            <ul class="r-skills">
+              <li>National Rep Network Development</li>
+              <li>Multi-Channel Dealer Strategy</li>
+              <li>GTM Execution — Zero to National Scale</li>
+              <li>Rep Recruiting, Onboarding &amp; Coaching</li>
+              <li>OEM &amp; Private Label Programs</li>
+              <li>Key Account Management</li>
+              <li>Sales Playbook Development</li>
+              <li>CRM &amp; Pipeline Management</li>
+              <li>Field Enablement &amp; Training</li>
+              <li>Pricing Strategy &amp; Margin Management</li>
+              <li>Fortune 500 Contract Negotiation</li>
+              <li>Cross-Functional Sales Leadership</li>
+            </ul>
+          </div>
+          <div>
+            <div class="r-section-label">Tools &amp; Systems</div>
+            <div class="r-tools">
+              <span class="r-tool">Salesforce</span><span class="r-tool">HubSpot</span>
+              <span class="r-tool">Tableau</span><span class="r-tool">Excel/VBA</span>
+              <span class="r-tool">Salsify</span><span class="r-tool">PowerPoint</span>
+            </div>
+          </div>
+          <div>
+            <div class="r-section-label">Education</div>
+            <div class="r-contact-item"><strong>University of Memphis</strong>Business Administration</div>
+          </div>
+        </aside>
+        <main class="r-main">
+          <section>
+            <div class="r-section-head">Professional Summary</div>
+            <div class="r-summary">
+              <p>Channel sales executive with 25+ years building independent rep networks and dealer programs for manufacturers entering or expanding the U.S. market. Repeated track record of taking organizations from zero national coverage to full-scale rep infrastructure — recruiting the right firms, building the coaching systems that make them perform, and driving revenue from the field while the network scales.</p>
+              <p style="margin-top:8px">Experienced across commercial furniture, lighting, electrical distribution, and adjacent B2B categories. Equally effective as a direct sales leader, field coach, and channel architect. Built for manufacturers who need someone who has done this before.</p>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Professional Experience</div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Southern Solutions Consulting</div><div class="r-job-title">President &amp; Principal Consultant</div></div>
+                <div class="r-job-dates">Dec 2005 – Present</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <div class="r-job-context">Channel sales consultancy specializing in rep network development and dealer program launch for B2B manufacturers. Engagements deliver VP and Director-level channel leadership on a contract basis.</div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">AI Sales Productivity Training — Contract</div><div class="r-eng-dates">May 2026 – Aug 2026</div></div>
+                <div class="r-eng-co">CAT Global</div>
+                <ul class="r-bullets"><li>Trained sales organization on AI tool adoption to increase productivity, pipeline discipline, and sales execution efficiency.</li></ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
+                <div class="r-eng-co">The Ubique Group / Flash Furniture</div>
+                <ul class="r-bullets">
+                  <li>Rebuilt dealer engagement model for 600+ member ISG program; reintroduced personal outreach into a digital-only channel.</li>
+                  <li>Designed complete contract pricing framework across 8,907 SKUs; built Excel/VBA pipeline tracker managing 138+ quotes and ~$1M in pipeline at 46% win rate.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Director of Sales, East Region — Contract</div><div class="r-eng-dates">Feb 2024 – Apr 2025</div></div>
+                <div class="r-eng-co">MOD Power &amp; Lighting</div>
+                <ul class="r-bullets">
+                  <li>Built East region rep network from zero to 20+ firms across 20+ states; delivered 40% YOY growth.</li>
+                  <li>Scaled OEM and private label adoption 25%; elevated win rates 15% through structured rep coaching.</li>
+                </ul>
+              </div>
+              <div class="r-engagement">
+                <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
+                <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
+                <ul class="r-bullets">
+                  <li>Built U.S. national rep network from scratch to 30+ partners across 42 states in 18 months generating $7–$10M over three years.</li>
+                  <li>Developed OEM and private label programs producing $2M+ in annualized revenue; fueled 30% YOY growth through direct contract negotiation.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Compatico, Inc.</div><div class="r-job-title">National Sales Director | Director, Giza 2020/CAP Program | Regional Sales Manager</div></div>
+                <div class="r-job-dates">Apr 2007 – Aug 2018</div>
+              </div>
+              <div class="r-job-loc">Grand Rapids, MI — Remote</div>
+              <ul class="r-bullets">
+                <li>Led 40+ rep network generating $12–15M annually; secured $1M+ Fortune 500 contracts through relationship-based national account management.</li>
+                <li>Built rep onboarding systems reducing ramp-up time 30%; drove accountability through performance reviews and field ride-alongs.</li>
+                <li>Directed Giza 2020/CAP program, cutting dealer proposal time 40% and lifting bid conversions 25%.</li>
+                <li>Expanded dealer network across 10+ states with 35% regional revenue growth; maintained 100+ active accounts.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Office Furniture Wholesale</div><div class="r-job-title">Owner &amp; President</div></div>
+                <div class="r-job-dates">Jan 1993 – Dec 2005</div>
+              </div>
+              <div class="r-job-loc">Memphis, TN</div>
+              <ul class="r-bullets">
+                <li>Built and scaled a B2B furniture operation; secured institutional contracts with Memphis City Schools, Shelby County Schools, St. Jude, and MLGW.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Leadership &amp; Community</div>
+            <ul class="r-act-list">
+              <li>Germantown Municipal School Design Review Committee</li>
+              <li>Liberty Bowl Hospitality Committee Volunteer</li>
+              <li>Alumni Class President — Christian Brothers High School</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ── CONSULTING TAB ── -->
+    <div id="panel-consulting" class="resume-panel">
+      <div class="resume-download-bar">
+        <button class="btn-download" onclick="printResume('consulting')">⬇ Download This Resume</button>
+      </div>
+      <div class="resume-card" id="resume-consulting">
+        <aside class="r-sidebar">
+          <div class="r-photo"><img src="patrick-headshot.png" alt="Patrick H. Green" /></div>
+          <div class="r-name-block">
+            <div class="r-name">Patrick H. Green</div>
+            <div class="r-channel-tag">Principal Consultant<br>Fractional Channel Sales Executive</div>
+          </div>
+          <div>
+            <div class="r-section-label">Contact</div>
+            <div class="r-contact-item"><strong>Email</strong>green.patrickh@outlook.com</div>
+            <div class="r-contact-item"><strong>Phone</strong>(901) 232-3231</div>
+            <div class="r-contact-item"><strong>Location</strong>Memphis, TN — Remote<br>Up to 75% Travel</div>
+            <div class="r-contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/patrick-green-343a0810/">linkedin.com/in/patrick-green</a></div>
+            <div class="r-contact-item"><strong>Website</strong>patrickhgreen.com</div>
+          </div>
+          <div>
+            <div class="r-section-label">Engagement Types</div>
+            <ul class="r-skills">
+              <li>Rep Network Build — Zero to National</li>
+              <li>Dealer Program Launch &amp; Optimization</li>
+              <li>Fractional VP/Director of Sales</li>
+              <li>GTM Strategy &amp; Execution</li>
+              <li>Channel Audit &amp; Restructuring</li>
+              <li>Rep Recruiting &amp; Onboarding</li>
+              <li>Sales Team Training &amp; Enablement</li>
+              <li>AI Productivity Training for Sales Teams</li>
+              <li>Pricing Framework Development</li>
+              <li>OEM &amp; Private Label Strategy</li>
+            </ul>
+          </div>
+          <div>
+            <div class="r-section-label">Industries Served</div>
+            <ul class="r-skills">
+              <li>Commercial Furniture &amp; Contract Interiors</li>
+              <li>Lighting &amp; Electrical Distribution</li>
+              <li>B2B Manufacturing — U.S. Market Entry</li>
+              <li>FF&amp;E &amp; Hospitality</li>
+            </ul>
+          </div>
+          <div>
+            <div class="r-section-label">Education</div>
+            <div class="r-contact-item"><strong>University of Memphis</strong>Business Administration</div>
+          </div>
+        </aside>
+        <main class="r-main">
+          <section>
+            <div class="r-section-head">About Southern Solutions Consulting</div>
+            <div class="r-summary">
+              <p>Southern Solutions Consulting works with B2B manufacturers who need senior channel sales leadership to build or scale their U.S. market presence. Engagements range from fractional VP/Director of Sales roles to targeted projects: rep network builds, dealer program launches, pricing framework development, and sales team training.</p>
+              <p style="margin-top:8px">Every engagement is run by Patrick Green directly — 25+ years of channel sales experience, applied to your specific market, your product, and the rep and dealer relationships that drive your revenue.</p>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Selected Engagements</div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">CAT Global</div><div class="r-job-title">AI Sales Productivity Training</div></div>
+                <div class="r-job-dates">May 2026 – Aug 2026</div>
+              </div>
+              <ul class="r-bullets"><li>Designed and delivered AI tool adoption training for sales organization, focused on increasing productivity, pipeline discipline, and execution efficiency.</li></ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">The Ubique Group / Flash Furniture</div><div class="r-job-title">National Sales Manager, ISG Channel</div></div>
+                <div class="r-job-dates">Oct 2025 – Apr 2026</div>
+              </div>
+              <ul class="r-bullets">
+                <li>Rebuilt dealer engagement model for 600+ member ISG program and designed complete contract pricing infrastructure across 8,907 SKUs.</li>
+                <li>Built custom pipeline management system tracking 138+ quotes and ~$1M in pipeline with 46% win rate.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">MOD Power &amp; Lighting</div><div class="r-job-title">Director of Sales, East Region</div></div>
+                <div class="r-job-dates">Feb 2024 – Apr 2025</div>
+              </div>
+              <ul class="r-bullets">
+                <li>Built East region rep network from zero to 20+ firms across 20+ states; delivered 40% YOY growth and 25% OEM program adoption increase.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Tremain</div><div class="r-job-title">Vice President of Sales, USA</div></div>
+                <div class="r-job-dates">Dec 2018 – Feb 2024</div>
+              </div>
+              <ul class="r-bullets">
+                <li>Built U.S. national rep network from zero to 30+ partners across 42 states in 18 months generating $7–$10M over three years.</li>
+                <li>Developed OEM and private label programs producing $2M+ annualized; drove 30% YOY growth through direct contract negotiations.</li>
+              </ul>
+            </div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">AIS Market Introduction</div><div class="r-job-title">SSC Direct Engagement</div></div>
+                <div class="r-job-dates">Early SSC</div>
+              </div>
+              <ul class="r-bullets">
+                <li>Introduced AIS to the Memphis market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="r-section-head">Prior Corporate Experience</div>
+            <div class="r-job">
+              <div class="r-job-header">
+                <div><div class="r-job-co">Compatico, Inc.</div><div class="r-job-title">National Sales Director | Regional Sales Manager</div></div>
+                <div class="r-job-dates">Apr 2007 – Aug 2018</div>
+              </div>
+              <ul class="r-bullets">
+                <li>Led 40+ rep network generating $12–15M annually; secured $1M+ Fortune 500 contracts and expanded dealer network across 10+ states.</li>
+              </ul>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+  </div><!-- /resume-panels -->
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+    </ul>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ BACKGROUND -->
+<div id="page-background" class="page">
+  <div class="page-header">
+    <div class="page-header-eyebrow">Career &amp; Background</div>
+    <h1 class="page-header-title">Who I Am</h1>
+    <p class="page-header-sub">The full story — where I have been, what I have built, and what drives the work.</p>
+  </div>
+
+  <div class="bg-body">
+    <div class="bio-section">
+      <p class="bio-lead">"I have spent 25 years doing one thing well: building the channel infrastructure that turns a manufacturer's product into national revenue."</p>
+      <p class="bio-text">I started in Memphis in 1993, running my own furniture operation from a retail showroom. I learned to sell, learned to manage people, and learned what dealers and institutional buyers actually need from a vendor relationship. Those early years built the foundation for everything that came after.</p>
+      <p class="bio-text">When Compatico recruited me in 2007, I took on national sales responsibility for a 40+ rep network producing $12–15M annually. I spent 11 years there building the systems, the coaching programs, and the dealer relationships that made that network perform. I also directed the Giza 2020/CAP design software program — reducing proposal time for dealers by 40% and increasing bid conversions by 25%. That experience taught me that the best channel leaders are also builders: they do not just manage what exists, they create the tools and infrastructure that make their networks more effective.</p>
+      <p class="bio-text">After Compatico, I took on the VP of Sales role at Tremain, a Mexico-based office furniture manufacturer with zero U.S. presence. I built their national rep network from scratch — 30+ partners across 42 states in 18 months — and generated $7–10M in revenue over three years. That engagement became the template for what Southern Solutions Consulting does today.</p>
+      <p class="bio-text">Since then, SSC has placed me inside organizations at the VP and Director level to build what they need: rep networks, dealer programs, pricing infrastructure, sales team training. Every engagement is different. The approach is the same.</p>
+    </div>
+
+    <div class="bio-section">
+      <div class="section-eyebrow">Career Timeline</div>
+      <h2 class="section-title" style="margin-bottom:36px">The Full Arc</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">May 2026 – Aug 2026</div>
+          <div class="timeline-role">AI Sales Productivity Training</div>
+          <div class="timeline-co">CAT Global — via Southern Solutions Consulting</div>
+          <div class="timeline-text">Engaged to train CAT Global's sales organization on AI tool adoption, focused on productivity, pipeline discipline, and execution efficiency across the sales team.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Oct 2025 – Apr 2026</div>
+          <div class="timeline-role">National Sales Manager, ISG Channel</div>
+          <div class="timeline-co">The Ubique Group / Flash Furniture — via Southern Solutions Consulting</div>
+          <div class="timeline-text">Rebuilt dealer engagement for a 600+ member program and designed complete contract pricing infrastructure across 8,907 SKUs. Built custom pipeline tracking system managing 138+ active quotes with a 46% win rate.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Feb 2024 – Apr 2025</div>
+          <div class="timeline-role">Director of Sales, East Region</div>
+          <div class="timeline-co">MOD Power &amp; Lighting — via Southern Solutions Consulting</div>
+          <div class="timeline-text">Built the East region from zero to 20+ independent rep firms across 20+ states. Delivered 40% year-over-year growth, 25% OEM program adoption increase, and 15% win rate improvement through structured coaching and field engagement.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Dec 2018 – Feb 2024</div>
+          <div class="timeline-role">Vice President of Sales, USA</div>
+          <div class="timeline-co">Tremain — via Southern Solutions Consulting</div>
+          <div class="timeline-text">Built Tremain's entire U.S. market presence from zero. Recruited and onboarded 30+ rep partners across 42 states in 18 months. Generated $7–10M in revenue over three years and developed OEM programs producing $2M+ annually.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Dec 2005 – Present</div>
+          <div class="timeline-role">President &amp; Principal Consultant</div>
+          <div class="timeline-co">Southern Solutions Consulting — Memphis, TN</div>
+          <div class="timeline-text">Founded SSC in 2005 to provide senior channel sales leadership to B2B manufacturers on a contract basis. The firm has supported clients across commercial furniture, lighting, and adjacent categories throughout its history.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Apr 2007 – Aug 2018</div>
+          <div class="timeline-role">National Sales Director | Director, Giza 2020/CAP Program</div>
+          <div class="timeline-co">Compatico, Inc. — Grand Rapids, MI</div>
+          <div class="timeline-text">Led national sales for a commercial furniture manufacturer through a 40+ rep network generating $12–15M annually. Directed the Giza 2020/CAP design software program, reducing proposal time 40% and increasing bid conversions 25%. Launched HushTiles™ acoustical product nationally.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-dates">Jan 1993 – Dec 2005</div>
+          <div class="timeline-role">Owner &amp; President</div>
+          <div class="timeline-co">Office Furniture Wholesale — Memphis, TN</div>
+          <div class="timeline-text">Built and operated a Memphis retail and B2B furniture operation serving commercial, institutional, and residential clients. Secured long-term contracts with Memphis City Schools, Shelby County Schools, St. Jude Children's Research Hospital, and MLGW.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+    </ul>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ CONTENT -->
+<div id="page-content" class="page">
+  <div class="page-header">
+    <div class="page-header-eyebrow">LinkedIn Content Series</div>
+    <h1 class="page-header-title">What I Write About</h1>
+    <p class="page-header-sub">Six published series covering channel sales, rep network development, sales leadership, and the practical application of AI in B2B sales. New content publishes regularly.</p>
+  </div>
+
+  <div class="content-body">
+    <div class="section-eyebrow">Published Series</div>
+    <h2 class="section-title">Six Series. One Focus.<br>Building Revenue Through the Right Channels.</h2>
+
+    <div class="series-grid">
+      <div class="series-card">
+        <div class="series-number">Series 01</div>
+        <div class="series-title">The Hiring Standard</div>
+        <div class="series-desc">Accountability in hiring and recruiting — what good hiring actually looks like, where it breaks down, and what sales leaders and candidates should expect from the process.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+      <div class="series-card">
+        <div class="series-number">Series 02</div>
+        <div class="series-title">AI in the Trenches</div>
+        <div class="series-desc">Practical AI adoption for sales professionals — not theory, not hype. Real tools, real workflows, and how to use them to get more done in less time.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+      <div class="series-card">
+        <div class="series-number">Series 03</div>
+        <div class="series-title">Rep Network Playbook</div>
+        <div class="series-desc">The mechanics of building and managing independent rep networks — recruiting the right firms, onboarding them effectively, and building accountability into the relationship from day one.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+      <div class="series-card">
+        <div class="series-number">Series 04</div>
+        <div class="series-title">Inside the AI Field Advantage</div>
+        <div class="series-desc">AI tools applied specifically to field sales execution — prospecting, prep, follow-up, and pipeline management. Written for reps and sales leaders who work in the field, not behind a desk.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+      <div class="series-card">
+        <div class="series-number">Series 05</div>
+        <div class="series-title">Inside the Sales Leader's Playbook</div>
+        <div class="series-desc">Strategy and leadership for sales executives — territory design, rep accountability, coaching systems, and the decisions that separate high-performing sales organizations from average ones.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+      <div class="series-card">
+        <div class="series-number">Series 06</div>
+        <div class="series-title">Inside the Rep's Briefcase</div>
+        <div class="series-desc">The independent rep's perspective — how top reps manage their territory, build manufacturer relationships, prioritize their line card, and stay competitive in a crowded market.</div>
+        <div class="series-meta">6–12 posts published</div>
+        <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="series-link">Read on LinkedIn →</a>
+      </div>
+    </div>
+
+    <div class="content-cta">
+      <div class="content-cta-text">
+        <strong>New content publishes regularly.</strong>
+        Follow Patrick on LinkedIn to get each new series post as it publishes — covering channel sales, rep network development, sales leadership, and AI in B2B sales.
+      </div>
+      <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank" class="btn-primary">Follow on LinkedIn</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+    </ul>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ CONTACT -->
+<div id="page-contact" class="page">
+  <div class="contact-body">
+    <div class="contact-left">
+      <h1 class="contact-intro">Let's talk about<br><span>what you need to build.</span></h1>
+      <p class="contact-sub">Whether you are a recruiter reviewing my background, a manufacturer looking for channel sales leadership, or a company exploring a consulting engagement — reach out directly. I respond personally.</p>
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <strong>Email</strong>
+          <a href="mailto:green.patrickh@outlook.com">green.patrickh@outlook.com</a>
+        </div>
+        <div class="contact-detail-item">
+          <strong>Phone</strong>
+          <a href="tel:9012323231">(901) 232-3231</a>
+        </div>
+        <div class="contact-detail-item">
+          <strong>LinkedIn</strong>
+          <a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank">linkedin.com/in/patrick-green-343a0810</a>
+        </div>
+        <div class="contact-detail-item">
+          <strong>Location</strong>
+          <span>Memphis, TN — Remote-based, up to 75% travel</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="section-eyebrow" style="color:var(--gold);margin-bottom:12px">Send a Message</div>
+      <h2 class="section-title" style="font-size:24px;margin-bottom:32px">Get in Touch</h2>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="First and last name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Reason for Reaching Out</label>
+          <select>
+            <option value="">Select one</option>
+            <option>Employment Opportunity</option>
+            <option>Consulting Engagement</option>
+            <option>Speaking / Content</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me what you are working on..."></textarea>
+        </div>
+        <button class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('content')">Content</a></li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function switchResumeTab(id, el) {
+  document.querySelectorAll('.resume-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.resume-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+function showResumeTab(id) {
+  showPage('resumes');
+  setTimeout(() => {
+    document.querySelectorAll('.resume-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.resume-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    const tabs = document.querySelectorAll('.resume-tab');
+    const map = { furniture: 0, lighting: 1, channel: 2, consulting: 3 };
+    tabs[map[id]].classList.add('active');
+  }, 50);
+}
+
+function printResume(id) {
+  document.querySelectorAll('.resume-panel').forEach(p => p.classList.remove('print-target'));
+  document.getElementById('panel-' + id).classList.add('print-target');
+  window.print();
+}
+</script>
+</body>
+</html>
