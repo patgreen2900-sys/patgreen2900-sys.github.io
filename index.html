@@ -3042,66 +3042,7 @@ function printResume(id) {
   printWindow.document.write('section{page-break-inside:avoid;break-inside:avoid}');
   printWindow.document.write('}');
   printWindow.document.write('@page{size:letter;margin:0}');
-  printWindow.document.write('
-  /* ── QUALS ── */
-  .quals-tabs-wrap {
-    background: var(--light-gray);
-    padding: 0 80px;
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    gap: 0;
-  }
-  .quals-tab {
-    padding: 18px 28px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-  }
-  .quals-tab:hover { color: var(--navy); }
-  .quals-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
-  .quals-panels { padding: 48px 80px 64px; }
-  .quals-panel { display: none; }
-  .quals-panel.active { display: block; }
-  .quals-doc { max-width: 960px; margin: 0 auto; background: var(--warm-white); box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
-  .quals-doc-header { background: var(--navy); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
-  .quals-doc-header h2 { font-family: "Playfair Display", serif; font-size: 22px; color: #fff; font-weight: 700; }
-  .quals-doc-header h2 span { color: var(--gold-light); }
-  .quals-doc-header .qdoc-type { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 5px; }
-  .quals-doc-header .qdoc-contact { text-align: right; font-size: 10px; color: rgba(255,255,255,0.7); line-height: 1.7; }
-  .quals-doc-header .qdoc-contact a { color: var(--gold-light); text-decoration: none; }
-  .quals-print-bar { background: var(--light-gray); padding: 10px 40px; display: flex; justify-content: flex-end; border-bottom: 1px solid var(--rule); }
-  .quals-doc .doc-body { padding: 28px 40px 40px; display: flex; flex-direction: column; gap: 18px; }
-  .quals-doc .qs-head { font-size: 8.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border-bottom: 1.5px solid var(--rule); padding-bottom: 4px; margin-bottom: 10px; }
-  .quals-doc .qs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
-  .quals-doc .qi { display: flex; flex-direction: column; gap: 2px; }
-  .quals-doc .qi-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); }
-  .quals-doc .qi-value { font-size: 12px; color: var(--dark-text); font-weight: 500; line-height: 1.4; }
-  .quals-doc .qi-value.strong { font-size: 13px; color: var(--navy); font-weight: 700; }
-  .quals-doc .qs-checklist { display: flex; flex-wrap: wrap; gap: 5px; }
-  .quals-doc .check-item { display: flex; align-items: center; font-size: 11px; color: var(--dark-text); background: var(--light-gray); padding: 4px 10px; border-left: 3px solid var(--navy); }
-  .quals-doc .check-item.gold { border-left-color: var(--gold); }
-  .quals-doc .check-item.blue { border-left-color: #2D6A8F; }
-  .quals-doc .doc-notation { background: #F0ECD8; border-left: 3px solid var(--gold); padding: 8px 14px; font-size: 10px; color: #5A4A1A; font-style: italic; }
-  @media (max-width: 768px) {
-    .quals-tabs-wrap { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .quals-tab { padding: 14px 16px; font-size: 10px; }
-    .quals-panels { padding: 24px 16px 40px; }
-    .quals-doc .qs-grid { grid-template-columns: 1fr; }
-    .quals-doc-header { flex-direction: column; gap: 12px; }
-    .quals-doc-header .qdoc-contact { text-align: left; }
-  }
-  @media print {
-    .quals-panel { display: none !important; }
-    .quals-panel.print-target { display: block !important; }
-    .quals-tabs-wrap, .page-header, .notation-bar { display: none !important; }
-  }
-</style></head><body>');
+
   printWindow.document.write(panel.outerHTML);
   printWindow.document.write('</body></html>');
   printWindow.document.close();
@@ -3130,42 +3071,29 @@ function openQuals(id) {
 
 function printQuals(id) {
   var panel = document.getElementById('qpanel-' + id);
-  if (!panel) { window.print(); return; }
-  var printWindow = window.open('', '_blank', 'width=900,height=700');
+  if (!panel) return;
+  var doc = panel.querySelector('.quals-doc');
+  if (!doc) return;
+  
+  var printWindow = window.open('', '_blank', 'width=960,height=700');
+  var styles = Array.from(document.styleSheets).map(function(s) {
+    try { return Array.from(s.cssRules).map(function(r){ return r.cssText; }).join('\n'); }
+    catch(e) { return ''; }
+  }).join('\n');
+  
   printWindow.document.write('<!DOCTYPE html><html><head>');
-  printWindow.document.write('<meta charset="UTF-8"><title>Patrick H. Green — Qualifications</title>');
+  printWindow.document.write('<meta charset="UTF-8">');
+  printWindow.document.write('<title>Patrick H. Green - Qualifications</title>');
   printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">');
-  printWindow.document.write('<style>');
-  printWindow.document.write('*{margin:0;padding:0;box-sizing:border-box}');
-  printWindow.document.write('body{font-family:Inter,sans-serif;background:white;color:#1A1A18;font-size:13px;line-height:1.5}');
-  printWindow.document.write('.quals-doc-header{background:#1E5C3A;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #B8922A;-webkit-print-color-adjust:exact;print-color-adjust:exact}');
-  printWindow.document.write('.quals-doc-header h2{font-family:"Playfair Display",serif;font-size:22px;color:#fff;font-weight:700}');
-  printWindow.document.write('.quals-doc-header h2 span{color:#D4A843}');
-  printWindow.document.write('.qdoc-type{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:5px}');
-  printWindow.document.write('.qdoc-contact{text-align:right;font-size:10px;color:rgba(255,255,255,.7);line-height:1.7}');
-  printWindow.document.write('.qdoc-contact a{color:#D4A843;text-decoration:none}');
-  printWindow.document.write('.quals-print-bar{display:none}');
-  printWindow.document.write('.doc-body{padding:28px 40px 40px;display:flex;flex-direction:column;gap:18px}');
-  printWindow.document.write('.qs-head{font-size:8.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#B8922A;border-bottom:1.5px solid #A8CCA8;padding-bottom:4px;margin-bottom:10px}');
-  printWindow.document.write('.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px}');
-  printWindow.document.write('.qi{display:flex;flex-direction:column;gap:2px}');
-  printWindow.document.write('.qi-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A82}');
-  printWindow.document.write('.qi-value{font-size:12px;color:#1A1A18;font-weight:500;line-height:1.4}');
-  printWindow.document.write('.qi-value.strong{font-size:13px;color:#1E5C3A;font-weight:700}');
-  printWindow.document.write('.qs-checklist{display:flex;flex-wrap:wrap;gap:5px}');
-  printWindow.document.write('.check-item{font-size:11px;color:#1A1A18;background:#F2F2EF;padding:4px 10px;border-left:3px solid #1E5C3A;-webkit-print-color-adjust:exact;print-color-adjust:exact}');
-  printWindow.document.write('.check-item.gold{border-left-color:#B8922A}');
-  printWindow.document.write('.check-item.blue{border-left-color:#2D6A8F}');
-  printWindow.document.write('.doc-notation{background:#F0ECD8;border-left:3px solid #B8922A;padding:8px 14px;font-size:10px;color:#5A4A1A;font-style:italic}');
-  printWindow.document.write('@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}');
-  printWindow.document.write('</style></head><body>');
-  printWindow.document.write(panel.querySelector(".quals-doc").outerHTML);
+  printWindow.document.write('<style>' + styles + '<\/style>');
+  printWindow.document.write('<style>body{background:white;margin:0;padding:0}.quals-print-bar{display:none!important}nav,footer{display:none!important}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.quals-doc-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.check-item{-webkit-print-color-adjust:exact;print-color-adjust:exact}}<\/style>');
+  printWindow.document.write('</head><body>');
+  printWindow.document.write(doc.outerHTML);
   printWindow.document.write('</body></html>');
   printWindow.document.close();
   printWindow.focus();
-  setTimeout(function(){ printWindow.print(); }, 800);
+  setTimeout(function(){ printWindow.print(); }, 1000);
 }
-
 </script>
 </body>
 </html>
