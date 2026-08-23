@@ -1148,6 +1148,65 @@ footer {
 
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
   }
+
+  /* ── QUALS ── */
+  .quals-tabs-wrap {
+    background: var(--light-gray);
+    padding: 0 80px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 0;
+  }
+  .quals-tab {
+    padding: 18px 28px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .quals-tab:hover { color: var(--navy); }
+  .quals-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .quals-panels { padding: 48px 80px 64px; }
+  .quals-panel { display: none; }
+  .quals-panel.active { display: block; }
+  .quals-doc { max-width: 960px; margin: 0 auto; background: var(--warm-white); box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+  .quals-doc-header { background: var(--navy); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .quals-doc-header h2 { font-family: "Playfair Display", serif; font-size: 22px; color: #fff; font-weight: 700; }
+  .quals-doc-header h2 span { color: var(--gold-light); }
+  .quals-doc-header .qdoc-type { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 5px; }
+  .quals-doc-header .qdoc-contact { text-align: right; font-size: 10px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .quals-doc-header .qdoc-contact a { color: var(--gold-light); text-decoration: none; }
+  .quals-print-bar { background: var(--light-gray); padding: 10px 40px; display: flex; justify-content: flex-end; border-bottom: 1px solid var(--rule); }
+  .quals-doc .doc-body { padding: 28px 40px 40px; display: flex; flex-direction: column; gap: 18px; }
+  .quals-doc .qs-head { font-size: 8.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border-bottom: 1.5px solid var(--rule); padding-bottom: 4px; margin-bottom: 10px; }
+  .quals-doc .qs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+  .quals-doc .qi { display: flex; flex-direction: column; gap: 2px; }
+  .quals-doc .qi-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); }
+  .quals-doc .qi-value { font-size: 12px; color: var(--dark-text); font-weight: 500; line-height: 1.4; }
+  .quals-doc .qi-value.strong { font-size: 13px; color: var(--navy); font-weight: 700; }
+  .quals-doc .qs-checklist { display: flex; flex-wrap: wrap; gap: 5px; }
+  .quals-doc .check-item { display: flex; align-items: center; font-size: 11px; color: var(--dark-text); background: var(--light-gray); padding: 4px 10px; border-left: 3px solid var(--navy); }
+  .quals-doc .check-item.gold { border-left-color: var(--gold); }
+  .quals-doc .check-item.blue { border-left-color: #2D6A8F; }
+  .quals-doc .doc-notation { background: #F0ECD8; border-left: 3px solid var(--gold); padding: 8px 14px; font-size: 10px; color: #5A4A1A; font-style: italic; }
+  @media (max-width: 768px) {
+    .quals-tabs-wrap { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .quals-tab { padding: 14px 16px; font-size: 10px; }
+    .quals-panels { padding: 24px 16px 40px; }
+    .quals-doc .qs-grid { grid-template-columns: 1fr; }
+    .quals-doc-header { flex-direction: column; gap: 12px; }
+    .quals-doc-header .qdoc-contact { text-align: left; }
+  }
+  @media print {
+    .quals-panel { display: none !important; }
+    .quals-panel.print-target { display: block !important; }
+    .quals-tabs-wrap, .page-header, .notation-bar { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -1159,6 +1218,7 @@ footer {
     <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
     <li><a onclick="showPage('resumes')" id="nav-resumes">Resumes</a></li>
     <li><a onclick="showPage('background')" id="nav-background">Background</a></li>
+    <li><a onclick="showPage('qualifications')" id="nav-qualifications">Qualifications</a></li>
     <li><a onclick="showPage('content')" id="nav-content">Content</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
@@ -1212,7 +1272,7 @@ footer {
     <div class="section-eyebrow">What I Do</div>
     <h2 class="section-title">I build from zero.<br>That is the whole story.</h2>
     <p class="intro-text">Manufacturers entering the U.S. market need someone who has done this before — someone who knows how to recruit the right reps, build the dealer relationships, and create the channel infrastructure that turns product into revenue. That is what I have done, repeatedly, across commercial furniture, contract interiors, lighting, and electrical distribution.</p>
-    <p class="intro-text">At Tremain, I built a national rep network from scratch to 40+ partners across 42 states in 18 months. At Compatico, I led a network of 40+ reps producing $12–15M annually for over a decade. At MOD, I built the East region from zero to 20+ rep firms across 20 states with 40% year-over-year growth. The method is the same every time. The results speak for themselves.</p>
+    <p class="intro-text">At Tremain, I built a national rep network from scratch to 40+ partners across all 50 states in 18 months. At Compatico, I led a network of 40+ reps producing $12–15M annually for over a decade. At MOD, I built the East region from zero to 20+ rep firms across 20 states with 40% year-over-year growth. The method is the same every time. The results speak for themselves.</p>
   </div>
 
   <div class="channels-grid">
@@ -1276,7 +1336,8 @@ footer {
     <!-- ── FURNITURE TAB ── -->
     <div id="panel-furniture" class="resume-panel active">
       <div class="resume-download-bar">
-        <button class="btn-download" onclick="printResume('furniture')">⬇ Download This Resume</button>
+        <button class="btn-download" onclick="window.open('Patrick%20Green%20Commercial%20Furniture%20Resume.pdf', '_blank')">⬇ Download Resume</button>
+        <button class="btn-download" onclick="openQuals('furniture')" style="margin-left:8px;background:var(--gold);color:var(--navy-deep)">⬇ Download Quals</button>
       </div>
       <div class="resume-card" id="resume-furniture">
         <aside class="r-sidebar">
@@ -1342,7 +1403,7 @@ footer {
               <div class="r-job-loc">Memphis, TN</div>
               <div class="r-job-context">B2B channel sales and dealer network development consultancy. Contract engagements place Patrick inside client organizations at the VP and Director level to build rep networks, launch dealer programs, and drive national revenue.</div>
               <ul class="r-bullets">
-                <li>Introduced AIS to the Memphis market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
+                <li>Introduced AIS to the Arkansas, Louisiana, and Mississippi market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
                 <li>Provided FF&amp;E procurement, interior design collaboration, and project coordination to commercial furniture dealers throughout the Southeast.</li>
               </ul>
               <div class="r-engagement">
@@ -1354,9 +1415,11 @@ footer {
                 <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
                 <div class="r-eng-co">The Ubique Group / Flash Furniture — Remote</div>
                 <ul class="r-bullets">
-                  <li>Managed ISG dealer program serving 600+ members nationwide; reintroduced personal outreach into a historically digital-only model.</li>
-                  <li>Designed and validated a complete contract dealer pricing framework across 8,907 SKUs, producing a 42% GP floor and 52% weighted average GP.</li>
-                  <li>Built a custom Excel/VBA pipeline tracker managing 138+ active quotes and ~$1M in tracked pipeline with a 46% win rate.</li>
+                  <li>Rebuilt a 600+ member ISG dealer program that had gone stagnant under a digital-only model.</li>
+                  <li>Reintroduced personal field outreach into a channel that had lost direct rep relationships.</li>
+                  <li>Built a custom Excel/VBA pipeline tracker managing 138+ active quotes with a 46% win rate.</li>
+                  <li>Produced a Salesforce-ready Price Book covering 8,907 active SKUs, resolving previously unpriced items and enabling clean contract dealer quoting.</li>
+                  <li>Developed dealer ordering policy with a manual surcharge structure designed to drive portal adoption and standardize ordering behavior across the ISG channel.</li>
                 </ul>
               </div>
               <div class="r-engagement">
@@ -1372,7 +1435,7 @@ footer {
                 <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
                 <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
                 <ul class="r-bullets">
-                  <li>Built U.S. national rep network from zero to 40+ partners across 42 states within 18 months, generating $7–$10M over three years.</li>
+                  <li>Built U.S. national rep network from zero to 40+ partners across nationwide within 18 months, generating $7–$10M over three years.</li>
                   <li>Developed OEM and private label programs producing $2M+ in annualized revenue from manufacturing partnerships.</li>
                   <li>Negotiated multi-year contract furniture agreements with major commercial clients, fueling 30% year-over-year growth.</li>
                   <li>Represented Tremain at NeoCon and HD Expo; drove expansion into healthcare, education, and commercial sectors.</li>
@@ -1390,7 +1453,7 @@ footer {
                 <li>Led a network of 40+ reps generating $12–15M annually; secured $1M+ contracts with Fortune 500 firms through relationship-based selling.</li>
                 <li>Developed rep onboarding programs reducing ramp-up time 30%; conducted performance reviews and field ride-alongs across the full network.</li>
                 <li>Directed Giza 2020/CAP design software program, reducing dealer proposal time 40% and increasing bid conversions 25%.</li>
-                <li>Spearheaded national rollout of HushTiles™ acoustic wall solution; expanded dealer network across 10+ states, growing regional revenue 35%.</li>
+                <li>Spearheaded national rollout of HushTiles™ acoustic wall solution; expanded dealer network nationally, growing regional revenue 35%.</li>
                 <li>Represented Compatico at NeoCon, IFMA, and regional design expos; served as exclusive Byrne Electrical distributor.</li>
               </ul>
             </div>
@@ -1422,7 +1485,8 @@ footer {
     <!-- ── LIGHTING TAB ── -->
     <div id="panel-lighting" class="resume-panel">
       <div class="resume-download-bar">
-        <button class="btn-download" onclick="printResume('lighting')">⬇ Download This Resume</button>
+        <button class="btn-download" onclick="window.open('Patrick%20Green%20Lighting%20and%20Electrical%20Resume.pdf', '_blank')">⬇ Download Resume</button>
+        <button class="btn-download" onclick="openQuals('lighting')" style="margin-left:8px;background:var(--gold);color:var(--navy-deep)">⬇ Download Quals</button>
       </div>
       <div class="resume-card" id="resume-lighting">
         <aside class="r-sidebar">
@@ -1500,15 +1564,15 @@ footer {
                 <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
                 <div class="r-eng-co">The Ubique Group / Flash Furniture — Remote</div>
                 <ul class="r-bullets">
-                  <li>Managed national dealer program serving 600+ members; built complete pricing framework across 8,907 SKUs producing 42% GP floor.</li>
-                  <li>Built custom Excel/VBA pipeline tracker managing 138+ active quotes and ~$1M in pipeline with 46% win rate.</li>
+                  <li>Rebuilt a 600+ member ISG dealer program that had gone stagnant under a digital-only model; reintroduced personal field outreach into a channel that had lost direct rep relationships.</li>
+                  <li>Built a custom Excel/VBA pipeline tracker managing 138+ active quotes with a 46% win rate.</li>
                 </ul>
               </div>
               <div class="r-engagement">
                 <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
                 <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
                 <ul class="r-bullets">
-                  <li>Built national rep network from zero to 40+ partners covering all 42 states in 18 months generating $7–$10M; directly applicable rep development and field coaching methodology.</li>
+                  <li>Built national rep network from zero to 40+ partners covering the entire U.S. in 18 months generating $7–$10M; directly applicable rep development and field coaching methodology.</li>
                   <li>Developed OEM and private label programs producing $2M+ in annualized revenue.</li>
                 </ul>
               </div>
@@ -1522,7 +1586,7 @@ footer {
               <ul class="r-bullets">
                 <li>Led specification-based selling through 40+ rep network to architects, designers, and commercial clients — directly transferable to lighting specification channels.</li>
                 <li>Served as exclusive Byrne Electrical distributor within the dealer network; managed electrical integration into panel systems and commercial workspaces.</li>
-                <li>Expanded dealer and rep network across 10+ states with 35% regional revenue growth; managed 100+ accounts.</li>
+                <li>Expanded dealer and rep network nationwide with 35% regional revenue growth; managed 100+ accounts.</li>
               </ul>
             </div>
             <div class="r-job">
@@ -1551,7 +1615,8 @@ footer {
     <!-- ── CHANNEL TAB ── -->
     <div id="panel-channel" class="resume-panel">
       <div class="resume-download-bar">
-        <button class="btn-download" onclick="printResume('channel')">⬇ Download This Resume</button>
+        <button class="btn-download" onclick="window.open('Patrick%20Green%20Channel%20Sales%20Leadership%20Resume.pdf', '_blank')">⬇ Download Resume</button>
+        <button class="btn-download" onclick="openQuals('channel')" style="margin-left:8px;background:var(--gold);color:var(--navy-deep)">⬇ Download Quals</button>
       </div>
       <div class="resume-card" id="resume-channel">
         <aside class="r-sidebar">
@@ -1623,8 +1688,7 @@ footer {
                 <div class="r-eng-header"><div class="r-eng-title">National Sales Manager, ISG Channel — Contract</div><div class="r-eng-dates">Oct 2025 – Apr 2026</div></div>
                 <div class="r-eng-co">The Ubique Group / Flash Furniture</div>
                 <ul class="r-bullets">
-                  <li>Rebuilt dealer engagement model for 600+ member ISG program; reintroduced personal outreach into a digital-only channel.</li>
-                  <li>Designed complete contract pricing framework across 8,907 SKUs; built Excel/VBA pipeline tracker managing 138+ quotes and ~$1M in pipeline at 46% win rate.</li>
+                  <li>Rebuilt a 600+ member ISG dealer program that had gone stagnant under a digital-only model; reintroduced personal field outreach and built an Excel/VBA pipeline tracker managing 138+ active quotes with a 46% win rate.</li>
                 </ul>
               </div>
               <div class="r-engagement">
@@ -1639,7 +1703,7 @@ footer {
                 <div class="r-eng-header"><div class="r-eng-title">Vice President of Sales, USA — Contract</div><div class="r-eng-dates">Dec 2018 – Feb 2024</div></div>
                 <div class="r-eng-co">Tremain — Monterrey, MX (Remote)</div>
                 <ul class="r-bullets">
-                  <li>Built U.S. national rep network from scratch to 30+ partners across 42 states in 18 months generating $7–$10M over three years.</li>
+                  <li>Built U.S. national rep network from scratch to 30+ partners across all 50 states in 18 months generating $7–$10M over three years.</li>
                   <li>Developed OEM and private label programs producing $2M+ in annualized revenue; fueled 30% YOY growth through direct contract negotiation.</li>
                 </ul>
               </div>
@@ -1654,7 +1718,7 @@ footer {
                 <li>Led 40+ rep network generating $12–15M annually; secured $1M+ Fortune 500 contracts through relationship-based national account management.</li>
                 <li>Built rep onboarding systems reducing ramp-up time 30%; drove accountability through performance reviews and field ride-alongs.</li>
                 <li>Directed Giza 2020/CAP program, cutting dealer proposal time 40% and lifting bid conversions 25%.</li>
-                <li>Expanded dealer network across 10+ states with 35% regional revenue growth; maintained 100+ active accounts.</li>
+                <li>Expanded dealer network nationwide with 35% regional revenue growth; maintained 100+ active accounts.</li>
               </ul>
             </div>
             <div class="r-job">
@@ -1683,7 +1747,8 @@ footer {
     <!-- ── CONSULTING TAB ── -->
     <div id="panel-consulting" class="resume-panel">
       <div class="resume-download-bar">
-        <button class="btn-download" onclick="printResume('consulting')">⬇ Download This Resume</button>
+        <button class="btn-download" onclick="window.open('Patrick%20Green%20Consulting%20Fractional%20Resume.pdf', '_blank')">⬇ Download Resume</button>
+        <button class="btn-download" onclick="openQuals('consulting')" style="margin-left:8px;background:var(--gold);color:var(--navy-deep)">⬇ Download Quals</button>
       </div>
       <div class="resume-card" id="resume-consulting">
         <aside class="r-sidebar">
@@ -1752,8 +1817,7 @@ footer {
                 <div class="r-job-dates">Oct 2025 – Apr 2026</div>
               </div>
               <ul class="r-bullets">
-                <li>Rebuilt dealer engagement model for 600+ member ISG program and designed complete contract pricing infrastructure across 8,907 SKUs.</li>
-                <li>Built custom pipeline management system tracking 138+ quotes and ~$1M in pipeline with 46% win rate.</li>
+                <li>Rebuilt a 600+ member ISG dealer program that had gone stagnant under a digital-only model; reintroduced personal field outreach and built a custom pipeline management system tracking 138+ quotes and ~$1M in pipeline with 46% win rate.</li>
               </ul>
             </div>
             <div class="r-job">
@@ -1771,7 +1835,7 @@ footer {
                 <div class="r-job-dates">Dec 2018 – Feb 2024</div>
               </div>
               <ul class="r-bullets">
-                <li>Built U.S. national rep network from zero to 40+ partners across 42 states in 18 months generating $7–$10M over three years.</li>
+                <li>Built U.S. national rep network from zero to 40+ partners across all 50 states in 18 months generating $7–$10M over three years.</li>
                 <li>Developed OEM and private label programs producing $2M+ annualized; drove 30% YOY growth through direct contract negotiations.</li>
               </ul>
             </div>
@@ -1781,7 +1845,7 @@ footer {
                 <div class="r-job-dates">Early SSC</div>
               </div>
               <ul class="r-bullets">
-                <li>Introduced AIS to the Memphis market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
+                <li>Introduced AIS to the Arkansas, Louisiana, and Mississippi market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</li>
               </ul>
             </div>
           </section>
@@ -1793,7 +1857,7 @@ footer {
                 <div class="r-job-dates">Apr 2007 – Aug 2018</div>
               </div>
               <ul class="r-bullets">
-                <li>Led 40+ rep network generating $12–15M annually; secured $1M+ Fortune 500 contracts and expanded dealer network across 10+ states.</li>
+                <li>Led 40+ rep network generating $12–15M annually; secured $1M+ Fortune 500 contracts and expanded dealer network nationwide.</li>
               </ul>
             </div>
           </section>
@@ -1815,6 +1879,850 @@ footer {
   </footer>
 </div>
 
+
+<!-- ══════════════════════════════════════════════════════ QUALIFICATIONS -->
+<div id="page-qualifications" class="page">
+  <div class="page-header">
+    <div class="page-header-eyebrow">Skills, Experience & Fit</div>
+    <h1 class="page-header-title">Qualifications</h1>
+    <p class="page-header-sub">Channel-specific qualifications summaries designed to answer the screening questions that application forms cannot capture. Select the channel that matches your search, or view the master summary covering all channels.</p>
+  </div>
+
+  <div class="quals-tabs-wrap">
+    <div class="quals-tab active" onclick="switchQualsTab('master', this)">Master — All Channels</div>
+    <div class="quals-tab" onclick="switchQualsTab('furniture', this)">Commercial Furniture & A&D</div>
+    <div class="quals-tab" onclick="switchQualsTab('lighting', this)">Lighting & Electrical</div>
+    <div class="quals-tab" onclick="switchQualsTab('channel', this)">Channel Sales Leadership</div>
+    <div class="quals-tab" onclick="switchQualsTab('consulting', this)">Consulting / Fractional</div>
+  </div>
+
+  <div class="quals-panels">
+
+    <!-- MASTER -->
+    <div id="qpanel-master" class="quals-panel active">
+      <div class="quals-doc">
+        <div class="quals-doc-header">
+          <div><h2>Patrick H. <span>Green</span></h2><div class="qdoc-type">Master Qualifications Summary — All Channels</div></div>
+          <div class="qdoc-contact">green.patrickh@outlook.com<br>(901) 232-3231<br><a href="https://patrickhgreen.com">patrickhgreen.com</a><br>Memphis, TN — Remote | Up to 75% Travel</div>
+        </div>
+        <div class="quals-print-bar"><button class="btn-download" onclick="printQuals('master')">⬇ Print / Download</button></div>
+        <div class="doc-body">
+
+    <!-- EXPERIENCE SNAPSHOT -->
+    <div class="qs">
+      <div class="qs-head">Experience Snapshot</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Total Sales Experience</div><div class="qi-value strong">25+ Years</div></div>
+        <div class="qi"><div class="qi-label">B2B Channel Sales Leadership</div><div class="qi-value strong">25+ Years</div></div>
+        <div class="qi"><div class="qi-label">Commercial Furniture &amp; Contract Interiors</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Lighting &amp; Electrical Distribution</div><div class="qi-value strong">3+ Years</div></div>
+        <div class="qi"><div class="qi-label">Independent Rep Network Management</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Consulting / Fractional Sales Leadership</div><div class="qi-value strong">20+ Years (SSC, est. 2005)</div></div>
+      </div>
+    </div>
+
+    <!-- ROLE LEVELS -->
+    <div class="qs">
+      <div class="qs-head">Role Levels Held</div>
+      <div class="qs-checklist">
+        <div class="check-item">Owner / President</div>
+        <div class="check-item">Vice President of Sales</div>
+        <div class="check-item">National Sales Director</div>
+        <div class="check-item">Director of Sales</div>
+        <div class="check-item">National Sales Manager</div>
+        <div class="check-item">Regional Sales Manager</div>
+        <div class="check-item">Principal Consultant</div>
+      </div>
+    </div>
+
+    <!-- MARKET ENTRY -->
+    <div class="qs">
+      <div class="qs-head">Market Entry &amp; Pioneer Track Record</div>
+      <div class="qs-grid">
+        <div class="qi">
+          <div class="qi-label">Tremain (Mexico-based, zero U.S. presence)</div>
+          <div class="qi-value">Built national rep network from zero — 40+ reps across all 50 states in 18 months. Full U.S. market entry executed end-to-end.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">MOD Power &amp; Lighting (zero East region coverage)</div>
+          <div class="qi-value">Built East region from zero — 20+ reps across 20+ states. 40% year-over-year growth.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">AIS (AR, LA, MS Market Entry)</div>
+          <div class="qi-value">Introduced AIS to the Arkansas, Louisiana, and Mississippi market, generating $750K in first-year sales through direct dealer engagement and institutional account development.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Manufacturer profile suited for</div>
+          <div class="qi-value">Foreign or domestic manufacturers entering the U.S. market, or established manufacturers expanding into new regions or channels without existing infrastructure.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REP NETWORK -->
+    <div class="qs">
+      <div class="qs-head">Independent Rep Network — Scale &amp; Infrastructure</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Peak Network Size Managed (Compatico)</div><div class="qi-value strong">40+ Reps</div></div>
+        <div class="qi"><div class="qi-label">Reps Recruited from Zero (Tremain)</div><div class="qi-value strong">40+ Reps — 42 States</div></div>
+        <div class="qi"><div class="qi-label">Reps Recruited from Zero (MOD)</div><div class="qi-value strong">20+ Reps — 20+ States</div></div>
+        <div class="qi"><div class="qi-label">Total Career Rep Recruitment</div><div class="qi-value strong">More than 25 Firms / Individuals</div></div>
+        <div class="qi"><div class="qi-label">Onboarding &amp; Ramp-Up</div><div class="qi-value">Built structured onboarding programs reducing rep ramp-up time by 30% at Compatico</div></div>
+        <div class="qi"><div class="qi-label">Coaching &amp; Accountability</div><div class="qi-value">Individual performance reviews, field ride-alongs, win rate improvement (15% lift at MOD)</div></div>
+      </div>
+    </div>
+
+    <!-- CUSTOMER CHANNELS -->
+    <div class="qs">
+      <div class="qs-head">Customer Channels — Direct Experience</div>
+      <div class="qs-checklist">
+        <div class="check-item">Independent Furniture Dealers</div>
+        <div class="check-item">Contract Furniture Dealers</div>
+        <div class="check-item">Independent Rep Firms</div>
+        <div class="check-item">Buying Groups / ISG (600+ Members)</div>
+        <div class="check-item">Interior Designers / A&amp;D</div>
+        <div class="check-item">E-Commerce Retailers</div>
+        <div class="check-item">National Accounts / Fortune 500</div>
+        <div class="check-item">Hospitality / FF&amp;E</div>
+        <div class="check-item">Healthcare Institutions</div>
+        <div class="check-item">Education / Institutional</div>
+        <div class="check-item">Government / Municipal</div>
+        <div class="check-item">OEM / Private Label Partners</div>
+      </div>
+    </div>
+
+    <!-- PRODUCT CATEGORIES -->
+    <div class="qs">
+      <div class="qs-head">Product Categories — Direct Sales Experience</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Seating &amp; Task Chairs</div>
+        <div class="check-item gold">Desking &amp; Workstations</div>
+        <div class="check-item gold">Panel Systems</div>
+        <div class="check-item gold">Acoustical Products (HushTiles™)</div>
+        <div class="check-item gold">Ancillary &amp; Collaborative Furniture</div>
+        <div class="check-item gold">Commercial Lighting Fixtures</div>
+        <div class="check-item gold">Electrical Components (Byrne Electrical)</div>
+        <div class="check-item gold">OEM &amp; Private Label Products</div>
+        <div class="check-item gold">FF&amp;E — Hospitality &amp; Institutional</div>
+      </div>
+    </div>
+
+    <!-- RESPONSIBILITIES -->
+    <div class="qs">
+      <div class="qs-head">Direct Responsibilities — All That Apply</div>
+      <div class="qs-checklist">
+        <div class="check-item">Recruiting Rep Firms &amp; Salespeople</div>
+        <div class="check-item">Hiring Salespeople</div>
+        <div class="check-item">Coaching &amp; Performance Management</div>
+        <div class="check-item">Sales Forecasting</div>
+        <div class="check-item">Budget Management</div>
+        <div class="check-item">Compensation Plan Design</div>
+        <div class="check-item">Commission Plan Design</div>
+        <div class="check-item">Territory Design</div>
+        <div class="check-item">Go-to-Market Strategy</div>
+        <div class="check-item">Sales Reporting &amp; CRM Management</div>
+        <div class="check-item">Pricing Strategy &amp; Margin Management</div>
+        <div class="check-item">Product Launch &amp; Market Entry</div>
+        <div class="check-item">OEM &amp; Private Label Program Execution</div>
+        <div class="check-item">Contract Negotiation</div>
+        <div class="check-item">Field Training &amp; Ride-Alongs</div>
+        <div class="check-item">Trade Show Leadership</div>
+        <div class="check-item">AI Sales Productivity Training</div>
+        <div class="check-item">Design Software Program Management (Giza/CAP)</div>
+      </div>
+    </div>
+
+    <!-- REVENUE -->
+    <div class="qs">
+      <div class="qs-head">Revenue &amp; Business Scale</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Largest Annual Book of Business</div><div class="qi-value strong">$12M – $15M (Compatico)</div></div>
+        <div class="qi"><div class="qi-label">Revenue Built from Zero (Tremain)</div><div class="qi-value strong">$7M – $10M over 3 Years</div></div>
+        <div class="qi"><div class="qi-label">OEM / Private Label Revenue</div><div class="qi-value strong">$2M+ Annualized (Tremain)</div></div>
+        <div class="qi"><div class="qi-label">Largest Single Contract Closed</div><div class="qi-value strong">$1M+ Fortune 500</div></div>
+        <div class="qi"><div class="qi-label">Pipeline Managed (Flash ISG)</div><div class="qi-value strong">138+ Quotes / ~$1M Pipeline / 46% Win Rate</div></div>
+        <div class="qi"><div class="qi-label">First-Year Market Entry Revenue (AIS — AR, LA, MS)</div><div class="qi-value strong">$750K</div></div>
+      </div>
+    </div>
+
+    <!-- TRADE SHOW -->
+    <div class="qs">
+      <div class="qs-head">Industry Presence &amp; Trade Shows</div>
+      <div class="qs-checklist">
+        <div class="check-item blue">NeoCon — Chicago</div>
+        <div class="check-item blue">HD Expo — Las Vegas</div>
+        <div class="check-item blue">IFMA</div>
+        <div class="check-item blue">Regional Design Expos</div>
+        <div class="check-item blue">Memphis Business &amp; Furniture Community</div>
+        <div class="check-item blue">A&amp;D Channel Relationships — Southeast &amp; National</div>
+      </div>
+    </div>
+
+    <!-- AI & TECHNOLOGY -->
+    <div class="qs">
+      <div class="qs-head">AI &amp; Technology Adoption</div>
+      <div class="qs-grid">
+        <div class="qi">
+          <div class="qi-label">CAT Global Engagement (2026)</div>
+          <div class="qi-value">Designed and delivered AI sales productivity training for a national sales organization — tool adoption, pipeline discipline, execution efficiency.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Published Content Series</div>
+          <div class="qi-value">Two active LinkedIn series on AI in sales: "AI in the Trenches" and "Inside the AI Field Advantage" — practical, field-tested adoption for B2B sales professionals.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Excel / VBA Development</div>
+          <div class="qi-value">Built custom pipeline tracker managing 138+ quotes and pricing models across 8,907 SKUs at Flash Furniture.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Tools in Active Use</div>
+          <div class="qi-value">Salesforce, HubSpot, Tableau, Salsify, Giza/CAP, Excel/VBA, AI productivity tools across research, writing, and analysis workflows.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GEOGRAPHY -->
+    <div class="qs">
+      <div class="qs-head">Geographic Coverage &amp; Availability</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">U.S. Market Coverage Built</div><div class="qi-value strong">Nationwide — All 50 States</div></div>
+        <div class="qi"><div class="qi-label">Travel Availability</div><div class="qi-value strong">Up to 75%</div></div>
+        <div class="qi"><div class="qi-label">Work Arrangement</div><div class="qi-value strong">Remote, Hybrid, Fractional or Direct</div></div>
+        <div class="qi"><div class="qi-label">Base Location</div><div class="qi-value strong">Memphis, TN</div></div>
+      </div>
+    </div>
+
+    <!-- WHAT I AM LOOKING FOR -->
+    <div class="qs">
+      <div class="qs-head">What I Am Looking For</div>
+      <div class="qs-grid">
+        <div class="qi">
+          <div class="qi-label">Role Type</div>
+          <div class="qi-value">VP of Sales, National Sales Director, Director of Sales, or Fractional / Consulting engagement at the senior leadership level.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Company Stage</div>
+          <div class="qi-value">Manufacturers entering the U.S. market, expanding into new channels, or rebuilding a rep network that is underperforming.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Category Preference</div>
+          <div class="qi-value">Commercial furniture, contract interiors, lighting, electrical distribution, or adjacent B2B manufacturing categories.</div>
+        </div>
+        <div class="qi">
+          <div class="qi-label">Ideal Engagement</div>
+          <div class="qi-value">A manufacturer that needs someone who has built this before — not a manager to oversee what exists, but a builder to create what does not yet exist.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="qs">
+      <div class="qs-head">Education</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Institution</div><div class="qi-value strong">University of Memphis</div></div>
+        <div class="qi"><div class="qi-label">Field of Study</div><div class="qi-value strong">Business Administration</div></div>
+      </div>
+    </div>
+
+    <div class="doc-notation">
+      This is a master qualifications summary covering all channels and verticals. Channel-specific qualifications documents are available alongside each resume at patrickhgreen.com. For specific opportunities, all materials are tailored to the role and job description.
+    </div>
+
+  </div>
+      </div>
+    </div>
+
+    <!-- FURNITURE -->
+    <div id="qpanel-furniture" class="quals-panel">
+      <div class="quals-doc">
+        <div class="quals-doc-header">
+          <div><h2>Patrick H. <span>Green</span></h2><div class="qdoc-type">Qualifications Summary — Commercial Furniture & Contract Interiors / A&D</div></div>
+          <div class="qdoc-contact">green.patrickh@outlook.com<br>(901) 232-3231<br><a href="https://patrickhgreen.com">patrickhgreen.com</a><br>Memphis, TN — Remote | Up to 75% Travel</div>
+        </div>
+        <div class="quals-print-bar"><button class="btn-download" onclick="printQuals('furniture')">⬇ Print / Download</button></div>
+        <div class="doc-body">
+
+    <div class="qs">
+      <div class="qs-head">Experience Snapshot</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Total Sales Experience</div><div class="qi-value strong">25+ Years</div></div>
+        <div class="qi"><div class="qi-label">Commercial Furniture & Contract Interiors</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Independent Rep Network Management</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">A&D Channel Engagement</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Consulting / Fractional Sales Leadership</div><div class="qi-value strong">20+ Years (SSC, est. 2005)</div></div>
+        <div class="qi"><div class="qi-label">NeoCon & Trade Show Presence</div><div class="qi-value strong">Active — NeoCon, HD Expo, IFMA</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Role Levels Held</div>
+      <div class="qs-checklist">
+        <div class="check-item">Owner / President</div>
+        <div class="check-item">Vice President of Sales</div>
+        <div class="check-item">National Sales Director</div>
+        <div class="check-item">Director of Sales</div>
+        <div class="check-item">National Sales Manager</div>
+        <div class="check-item">Regional Sales Manager</div>
+        <div class="check-item">Principal Consultant</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Product Categories — Direct Sales Experience</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Seating & Task Chairs</div>
+        <div class="check-item gold">Desking & Workstations</div>
+        <div class="check-item gold">Panel Systems</div>
+        <div class="check-item gold">Acoustical Products (HushTiles™)</div>
+        <div class="check-item gold">Ancillary & Collaborative Furniture</div>
+        <div class="check-item gold">Ergonomic Seating</div>
+        <div class="check-item gold">FF&E — Hospitality & Institutional</div>
+        <div class="check-item gold">Electrical Components (Byrne Electrical)</div>
+        <div class="check-item gold">OEM & Private Label Products</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Customer Channels — Direct Experience</div>
+      <div class="qs-checklist">
+        <div class="check-item">Independent Furniture Dealers</div>
+        <div class="check-item">Contract Furniture Dealers</div>
+        <div class="check-item">Independent Rep Firms</div>
+        <div class="check-item">Interior Designers / A&D</div>
+        <div class="check-item">Buying Groups / ISG (600+ Members)</div>
+        <div class="check-item">E-Commerce Retailers</div>
+        <div class="check-item">National Accounts / Fortune 500</div>
+        <div class="check-item">Hospitality / FF&E</div>
+        <div class="check-item">Healthcare Institutions</div>
+        <div class="check-item">Education / Institutional</div>
+        <div class="check-item">Government / Municipal</div>
+        <div class="check-item">OEM / Private Label Partners</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Rep Network — Scale & Infrastructure</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Peak Network Managed (Compatico)</div><div class="qi-value strong">40+ Reps — $12M–$15M Annual</div></div>
+        <div class="qi"><div class="qi-label">Built from Zero (Tremain)</div><div class="qi-value strong">40+ Reps — 42 States in 18 Months</div></div>
+        <div class="qi"><div class="qi-label">Onboarding Program Built</div><div class="qi-value">Reduced ramp-up time 30% at Compatico through structured onboarding and field ride-alongs</div></div>
+        <div class="qi"><div class="qi-label">Coaching & Accountability</div><div class="qi-value">Individual performance reviews, field ride-alongs, coaching cadence — consistent win rate improvement</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Direct Responsibilities — All That Apply</div>
+      <div class="qs-checklist">
+        <div class="check-item">Recruiting Rep Firms & Salespeople</div>
+        <div class="check-item">Hiring Salespeople</div>
+        <div class="check-item">Coaching & Performance Management</div>
+        <div class="check-item">Sales Forecasting</div>
+        <div class="check-item">Budget Management</div>
+        <div class="check-item">Compensation Plan Design</div>
+        <div class="check-item">Commission Plan Design</div>
+        <div class="check-item">Territory Design</div>
+        <div class="check-item">Go-to-Market Strategy</div>
+        <div class="check-item">Sales Reporting & CRM Management</div>
+        <div class="check-item">Pricing Strategy & Margin Management</div>
+        <div class="check-item">Product Launch & Market Entry</div>
+        <div class="check-item">OEM & Private Label Program Execution</div>
+        <div class="check-item">Contract Negotiation</div>
+        <div class="check-item">Field Training & Ride-Alongs</div>
+        <div class="check-item">NeoCon & Trade Show Leadership</div>
+        <div class="check-item">Design Software Program Management (Giza/CAP)</div>
+        <div class="check-item">FF&E Procurement & Project Coordination</div>
+        <div class="check-item">Dealer Bid Conversion Optimization</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Revenue & Business Scale</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Largest Annual Book of Business</div><div class="qi-value strong">$12M – $15M (Compatico)</div></div>
+        <div class="qi"><div class="qi-label">Revenue Built from Zero (Tremain)</div><div class="qi-value strong">$7M – $10M over 3 Years</div></div>
+        <div class="qi"><div class="qi-label">OEM / Private Label Revenue</div><div class="qi-value strong">$2M+ Annualized (Tremain)</div></div>
+        <div class="qi"><div class="qi-label">Largest Single Contract Closed</div><div class="qi-value strong">$1M+ Fortune 500 (Compatico)</div></div>
+        <div class="qi"><div class="qi-label">First-Year Market Entry Revenue (AIS)</div><div class="qi-value strong">$750K — AR, LA, MS</div></div>
+        <div class="qi"><div class="qi-label">Dealer Network Revenue Growth</div><div class="qi-value strong">35% Regional Growth (Compatico)</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Industry Presence & Trade Shows</div>
+      <div class="qs-checklist">
+        <div class="check-item blue">NeoCon — Chicago</div>
+        <div class="check-item blue">HD Expo — Las Vegas</div>
+        <div class="check-item blue">IFMA</div>
+        <div class="check-item blue">Regional Design Expos</div>
+        <div class="check-item blue">A&D Channel Relationships — Southeast & National</div>
+        <div class="check-item blue">Byrne Electrical — Exclusive Distributor (Compatico)</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Notable Programs & Launches</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">HushTiles™ — National Rollout</div><div class="qi-value">Led national launch of modular acoustic wall solution; drove dealer adoption nationwide</div></div>
+        <div class="qi"><div class="qi-label">Giza 2020/CAP Design Software</div><div class="qi-value">Directed program reducing dealer proposal time 40% and increasing bid conversions 25%</div></div>
+        <div class="qi"><div class="qi-label">ISG Dealer Program Rebuild (Flash)</div><div class="qi-value">Rebuilt 600+ member program; reintroduced personal outreach into a digital-only channel</div></div>
+        <div class="qi"><div class="qi-label">Tremain U.S. Market Entry</div><div class="qi-value">Built full national coverage from zero — 40+ reps, nationwide, 18 months</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Geographic Coverage & Availability</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">U.S. Market Coverage Built</div><div class="qi-value strong">Nationwide — All 50 States</div></div>
+        <div class="qi"><div class="qi-label">Travel Availability</div><div class="qi-value strong">Up to 75%</div></div>
+        <div class="qi"><div class="qi-label">Work Arrangement</div><div class="qi-value strong">Remote, Hybrid, Fractional or Direct</div></div>
+        <div class="qi"><div class="qi-label">Base Location</div><div class="qi-value strong">Memphis, TN</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Tools & Systems</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Salesforce</div>
+        <div class="check-item gold">HubSpot</div>
+        <div class="check-item gold">Giza/CAP</div>
+        <div class="check-item gold">Salsify</div>
+        <div class="check-item gold">Tableau</div>
+        <div class="check-item gold">Excel/VBA (Advanced)</div>
+        <div class="check-item gold">AutoCAD</div>
+        <div class="check-item gold">PowerPoint</div>
+        <div class="check-item gold">AI Productivity Tools</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Education</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Institution</div><div class="qi-value strong">University of Memphis</div></div>
+        <div class="qi"><div class="qi-label">Field of Study</div><div class="qi-value strong">Business Administration</div></div>
+      </div>
+    </div>
+
+    <div class="doc-notation">
+      This qualifications summary is specific to the Commercial Furniture, Contract Interiors, and A&D channel. A master qualifications summary and channel-specific versions for Lighting & Electrical, General Channel Sales Leadership, and Consulting/Fractional are available at patrickhgreen.com.
+    </div>
+
+  </div>
+      </div>
+    </div>
+
+    <!-- LIGHTING -->
+    <div id="qpanel-lighting" class="quals-panel">
+      <div class="quals-doc">
+        <div class="quals-doc-header">
+          <div><h2>Patrick H. <span>Green</span></h2><div class="qdoc-type">Qualifications Summary — Lighting & Electrical Distribution</div></div>
+          <div class="qdoc-contact">green.patrickh@outlook.com<br>(901) 232-3231<br><a href="https://patrickhgreen.com">patrickhgreen.com</a><br>Memphis, TN — Remote | Up to 75% Travel</div>
+        </div>
+        <div class="quals-print-bar"><button class="btn-download" onclick="printQuals('lighting')">⬇ Print / Download</button></div>
+        <div class="doc-body">
+
+    <div class="qs">
+      <div class="qs-head">Experience Snapshot</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Total Sales Experience</div><div class="qi-value strong">25+ Years</div></div>
+        <div class="qi"><div class="qi-label">Lighting & Electrical Distribution</div><div class="qi-value strong">3+ Years (MOD Power & Lighting)</div></div>
+        <div class="qi"><div class="qi-label">Independent Rep Network Management</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Electrical Component Sales (Byrne)</div><div class="qi-value strong">11 Years (Compatico)</div></div>
+        <div class="qi"><div class="qi-label">OEM & Private Label Execution</div><div class="qi-value strong">Tremain, MOD, Compatico</div></div>
+        <div class="qi"><div class="qi-label">Specification Sales — A&D Channel</div><div class="qi-value strong">15+ Years</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Role Levels Held</div>
+      <div class="qs-checklist">
+        <div class="check-item">Owner / President</div>
+        <div class="check-item">Vice President of Sales</div>
+        <div class="check-item">National Sales Director</div>
+        <div class="check-item">Director of Sales</div>
+        <div class="check-item">National Sales Manager</div>
+        <div class="check-item">Regional Sales Manager</div>
+        <div class="check-item">Principal Consultant</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Primary Lighting & Electrical Engagement</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Company</div><div class="qi-value strong">MOD Power & Lighting</div></div>
+        <div class="qi"><div class="qi-label">Role</div><div class="qi-value strong">Director of Sales, East Region</div></div>
+        <div class="qi"><div class="qi-label">Rep Network Built</div><div class="qi-value strong">20+ Reps — 20+ States from Zero</div></div>
+        <div class="qi"><div class="qi-label">Revenue Growth</div><div class="qi-value strong">40% Year-Over-Year</div></div>
+        <div class="qi"><div class="qi-label">OEM/Private Label Adoption</div><div class="qi-value strong">25% Increase Among Key Accounts</div></div>
+        <div class="qi"><div class="qi-label">Win Rate Improvement</div><div class="qi-value strong">15% Lift Through Rep Coaching</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Electrical Distribution Experience — Compatico</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Role</div><div class="qi-value">Exclusive Byrne Electrical distributor within the Compatico dealer network</div></div>
+        <div class="qi"><div class="qi-label">Scope</div><div class="qi-value">Managed power and tech-mount electrical component integration into commercial workstation systems across commercial, government, and education environments</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Customer Channels — Direct Experience</div>
+      <div class="qs-checklist">
+        <div class="check-item">Independent Lighting Rep Firms</div>
+        <div class="check-item">Commercial Lighting Dealers</div>
+        <div class="check-item">Electrical Distributors</div>
+        <div class="check-item">Interior Designers / A&D (Specification)</div>
+        <div class="check-item">Commercial Contractors</div>
+        <div class="check-item">OEM / Private Label Partners</div>
+        <div class="check-item">Healthcare Institutions</div>
+        <div class="check-item">Education / Institutional</div>
+        <div class="check-item">Government / Municipal</div>
+        <div class="check-item">Hospitality / FF&E</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Direct Responsibilities — All That Apply</div>
+      <div class="qs-checklist">
+        <div class="check-item">Recruiting Independent Rep Firms</div>
+        <div class="check-item">Hiring Salespeople</div>
+        <div class="check-item">Coaching & Performance Management</div>
+        <div class="check-item">Sales Forecasting</div>
+        <div class="check-item">Go-to-Market Strategy</div>
+        <div class="check-item">OEM & Private Label Program Execution</div>
+        <div class="check-item">Territory Design</div>
+        <div class="check-item">Product Training & Field Enablement</div>
+        <div class="check-item">Specification Selling — A&D Channel</div>
+        <div class="check-item">Sample Kit Deployment</div>
+        <div class="check-item">Pricing Strategy & Margin Management</div>
+        <div class="check-item">CRM & Pipeline Management</div>
+        <div class="check-item">Field Training & Ride-Alongs</div>
+        <div class="check-item">Engineering & Marketing Collaboration</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Transferable Depth from Commercial Furniture</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">A&D Specification Selling</div><div class="qi-value">15+ years selling through architects, interior designers, and commercial project teams — directly transferable to lighting specification channels</div></div>
+        <div class="qi"><div class="qi-label">Rep Network Methodology</div><div class="qi-value">Built three rep networks from zero across different product categories — the recruiting, onboarding, and coaching approach transfers across any independent rep channel</div></div>
+        <div class="qi"><div class="qi-label">OEM & Private Label</div><div class="qi-value">Executed OEM and private label programs at Tremain ($2M+ annualized), MOD (25% adoption increase), and Compatico — experience spans multiple product categories</div></div>
+        <div class="qi"><div class="qi-label">Institutional Channels</div><div class="qi-value">Government, healthcare, education, and municipal account experience dating to Office Furniture Wholesale — channels served by both furniture and lighting manufacturers</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Geographic Coverage & Availability</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">U.S. Market Coverage Built</div><div class="qi-value strong">Nationwide — All 50 States</div></div>
+        <div class="qi"><div class="qi-label">Travel Availability</div><div class="qi-value strong">Up to 75%</div></div>
+        <div class="qi"><div class="qi-label">Work Arrangement</div><div class="qi-value strong">Remote, Hybrid, Fractional or Direct</div></div>
+        <div class="qi"><div class="qi-label">Base Location</div><div class="qi-value strong">Memphis, TN</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Tools & Systems</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Salesforce</div>
+        <div class="check-item gold">HubSpot</div>
+        <div class="check-item gold">Tableau</div>
+        <div class="check-item gold">Excel/VBA (Advanced)</div>
+        <div class="check-item gold">Salsify</div>
+        <div class="check-item gold">PowerPoint</div>
+        <div class="check-item gold">AI Productivity Tools</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Education</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Institution</div><div class="qi-value strong">University of Memphis</div></div>
+        <div class="qi"><div class="qi-label">Field of Study</div><div class="qi-value strong">Business Administration</div></div>
+      </div>
+    </div>
+
+    <div class="doc-notation">
+      This qualifications summary is specific to the Lighting & Electrical Distribution channel. A master qualifications summary and channel-specific versions for Commercial Furniture/A&D, General Channel Sales Leadership, and Consulting/Fractional are available at patrickhgreen.com.
+    </div>
+
+  </div>
+      </div>
+    </div>
+
+    <!-- CHANNEL -->
+    <div id="qpanel-channel" class="quals-panel">
+      <div class="quals-doc">
+        <div class="quals-doc-header">
+          <div><h2>Patrick H. <span>Green</span></h2><div class="qdoc-type">Qualifications Summary — General Channel Sales Leadership</div></div>
+          <div class="qdoc-contact">green.patrickh@outlook.com<br>(901) 232-3231<br><a href="https://patrickhgreen.com">patrickhgreen.com</a><br>Memphis, TN — Remote | Up to 75% Travel</div>
+        </div>
+        <div class="quals-print-bar"><button class="btn-download" onclick="printQuals('channel')">⬇ Print / Download</button></div>
+        <div class="doc-body">
+
+    <div class="qs">
+      <div class="qs-head">Experience Snapshot</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Total B2B Channel Sales Experience</div><div class="qi-value strong">25+ Years</div></div>
+        <div class="qi"><div class="qi-label">Independent Rep Network Management</div><div class="qi-value strong">15+ Years</div></div>
+        <div class="qi"><div class="qi-label">Rep Networks Built from Zero</div><div class="qi-value strong">3 Separate Organizations</div></div>
+        <div class="qi"><div class="qi-label">Industries Covered</div><div class="qi-value strong">Furniture, Lighting, Electrical, B2B Mfg</div></div>
+        <div class="qi"><div class="qi-label">Consulting / Fractional Leadership</div><div class="qi-value strong">20+ Years (SSC, est. 2005)</div></div>
+        <div class="qi"><div class="qi-label">AI Sales Productivity Training</div><div class="qi-value strong">Active — CAT Global (2026)</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Role Levels Held</div>
+      <div class="qs-checklist">
+        <div class="check-item">Owner / President</div>
+        <div class="check-item">Vice President of Sales</div>
+        <div class="check-item">National Sales Director</div>
+        <div class="check-item">Director of Sales</div>
+        <div class="check-item">National Sales Manager</div>
+        <div class="check-item">Regional Sales Manager</div>
+        <div class="check-item">Principal Consultant</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Manufacturer & Product Line Market Pioneering</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Tremain — Zero U.S. Presence</div><div class="qi-value">Built national rep network from zero — 40+ reps covering the entire U.S. in 18 months. Full U.S. market entry executed end-to-end. Generated $7–$10M over three years.</div></div>
+        <div class="qi"><div class="qi-label">MOD Power & Lighting — Zero East Coverage</div><div class="qi-value">Built East region from zero — 20+ reps across 20+ states. 40% year-over-year growth delivered.</div></div>
+        <div class="qi"><div class="qi-label">AIS — AR, LA, MS Market Entry</div><div class="qi-value">Introduced AIS to the Arkansas, Louisiana, and Mississippi market generating $750K in first-year sales.</div></div>
+        <div class="qi"><div class="qi-label">Pattern</div><div class="qi-value strong">Three separate zero-to-national builds across different product categories and company sizes.</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Rep Network Scale & Infrastructure</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Peak Network Managed (Compatico)</div><div class="qi-value strong">40+ Reps — $12M–$15M Annual</div></div>
+        <div class="qi"><div class="qi-label">Built from Zero (Tremain)</div><div class="qi-value strong">40+ Reps — 42 States, 18 Months</div></div>
+        <div class="qi"><div class="qi-label">Built from Zero (MOD)</div><div class="qi-value strong">20+ Reps — 20+ States</div></div>
+        <div class="qi"><div class="qi-label">ISG Dealer Program (Flash)</div><div class="qi-value strong">600+ Members — Rebuilt from Stagnant</div></div>
+        <div class="qi"><div class="qi-label">Onboarding Systems</div><div class="qi-value">Reduced ramp-up time 30% at Compatico; structured onboarding applied across all engagements</div></div>
+        <div class="qi"><div class="qi-label">Coaching Impact</div><div class="qi-value">15% win rate improvement at MOD through structured rep coaching and field ride-alongs</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Direct Responsibilities — All That Apply</div>
+      <div class="qs-checklist">
+        <div class="check-item">Recruiting Rep Firms & Salespeople</div>
+        <div class="check-item">Hiring Salespeople</div>
+        <div class="check-item">Coaching & Performance Management</div>
+        <div class="check-item">Sales Forecasting</div>
+        <div class="check-item">Budget Management</div>
+        <div class="check-item">Compensation Plan Design</div>
+        <div class="check-item">Commission Plan Design</div>
+        <div class="check-item">Territory Design</div>
+        <div class="check-item">Go-to-Market Strategy</div>
+        <div class="check-item">Sales Reporting & CRM Management</div>
+        <div class="check-item">Pricing Strategy & Margin Management</div>
+        <div class="check-item">Product Launch & Market Entry</div>
+        <div class="check-item">OEM & Private Label Program Execution</div>
+        <div class="check-item">Contract Negotiation</div>
+        <div class="check-item">Field Training & Ride-Alongs</div>
+        <div class="check-item">Trade Show Leadership</div>
+        <div class="check-item">AI Sales Productivity Training</div>
+        <div class="check-item">Dealer Program Development & Rebuild</div>
+        <div class="check-item">Dealer Ordering Policy Design</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Revenue & Business Scale</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Largest Annual Book of Business</div><div class="qi-value strong">$12M – $15M (Compatico)</div></div>
+        <div class="qi"><div class="qi-label">Revenue Built from Zero (Tremain)</div><div class="qi-value strong">$7M – $10M over 3 Years</div></div>
+        <div class="qi"><div class="qi-label">OEM / Private Label Revenue</div><div class="qi-value strong">$2M+ Annualized (Tremain)</div></div>
+        <div class="qi"><div class="qi-label">Largest Single Contract</div><div class="qi-value strong">$1M+ Fortune 500</div></div>
+        <div class="qi"><div class="qi-label">Pipeline Managed (Flash)</div><div class="qi-value strong">138+ Quotes / 46% Win Rate</div></div>
+        <div class="qi"><div class="qi-label">YOY Growth Delivered</div><div class="qi-value strong">40% (MOD) | 30% (Tremain) | 35% Regional (Compatico)</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">AI & Technology Adoption</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">CAT Global (2026)</div><div class="qi-value">Designed and delivered AI sales productivity training for a national sales organization</div></div>
+        <div class="qi"><div class="qi-label">Published Content</div><div class="qi-value">Two LinkedIn series on AI in B2B sales: "AI in the Trenches" and "Inside the AI Field Advantage"</div></div>
+        <div class="qi"><div class="qi-label">Excel/VBA</div><div class="qi-value">Built custom pipeline tracker managing 138+ quotes at Flash; advanced modeling and dashboard capability</div></div>
+        <div class="qi"><div class="qi-label">CRM Systems</div><div class="qi-value">Salesforce, HubSpot — pipeline management, rep performance tracking, territory forecasting</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Geographic Coverage & Availability</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">U.S. Coverage Built</div><div class="qi-value strong">Nationwide — All 50 States</div></div>
+        <div class="qi"><div class="qi-label">Travel Availability</div><div class="qi-value strong">Up to 75%</div></div>
+        <div class="qi"><div class="qi-label">Work Arrangement</div><div class="qi-value strong">Remote, Hybrid, Fractional or Direct</div></div>
+        <div class="qi"><div class="qi-label">Base Location</div><div class="qi-value strong">Memphis, TN</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Tools & Systems</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Salesforce</div>
+        <div class="check-item gold">HubSpot</div>
+        <div class="check-item gold">Tableau</div>
+        <div class="check-item gold">Excel/VBA (Advanced)</div>
+        <div class="check-item gold">Salsify</div>
+        <div class="check-item gold">PowerPoint</div>
+        <div class="check-item gold">Giza/CAP</div>
+        <div class="check-item gold">AI Productivity Tools</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Education</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Institution</div><div class="qi-value strong">University of Memphis</div></div>
+        <div class="qi"><div class="qi-label">Field of Study</div><div class="qi-value strong">Business Administration</div></div>
+      </div>
+    </div>
+
+    <div class="doc-notation">
+      This qualifications summary covers general channel sales leadership across all verticals. Channel-specific versions for Commercial Furniture/A&D, Lighting & Electrical, and Consulting/Fractional are available at patrickhgreen.com.
+    </div>
+
+  </div>
+      </div>
+    </div>
+
+    <!-- CONSULTING -->
+    <div id="qpanel-consulting" class="quals-panel">
+      <div class="quals-doc">
+        <div class="quals-doc-header">
+          <div><h2>Patrick H. <span>Green</span></h2><div class="qdoc-type">Consulting & Fractional Channel Sales Executive — Southern Solutions Consulting</div></div>
+          <div class="qdoc-contact">green.patrickh@outlook.com<br>(901) 232-3231<br><a href="https://patrickhgreen.com">patrickhgreen.com</a><br><a href="https://southernsolutionsconsulting.com">southernsolutionsconsulting.com</a></div>
+        </div>
+        <div class="quals-print-bar"><button class="btn-download" onclick="printQuals('consulting')">⬇ Print / Download</button></div>
+        <div class="doc-body">
+
+    <div class="qs">
+      <div class="qs-head">About Southern Solutions Consulting</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Founded</div><div class="qi-value strong">December 2005 — Active for 20+ Years</div></div>
+        <div class="qi"><div class="qi-label">Principal</div><div class="qi-value strong">Patrick H. Green — Every Engagement, Directly</div></div>
+        <div class="qi"><div class="qi-label">Focus</div><div class="qi-value">B2B manufacturers entering or expanding the U.S. market who need senior channel sales leadership without a full-time hire</div></div>
+        <div class="qi"><div class="qi-label">Engagement Model</div><div class="qi-value">Fractional VP/Director of Sales, targeted project engagements, or hybrid retainer arrangements</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Engagement Types Available</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Rep Network Build — Zero to National</div>
+        <div class="check-item gold">Dealer Program Launch & Optimization</div>
+        <div class="check-item gold">Fractional VP / Director of Sales</div>
+        <div class="check-item gold">GTM Strategy & Execution</div>
+        <div class="check-item gold">Channel Audit & Restructuring</div>
+        <div class="check-item gold">Rep Recruiting & Onboarding</div>
+        <div class="check-item gold">Sales Team Training & Enablement</div>
+        <div class="check-item gold">AI Productivity Training for Sales Teams</div>
+        <div class="check-item gold">Pricing Framework Development</div>
+        <div class="check-item gold">OEM & Private Label Strategy</div>
+        <div class="check-item gold">Dealer Ordering Policy Design</div>
+        <div class="check-item gold">CRM Pipeline Infrastructure</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Manufacturer Profile — Ideal SSC Client</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Company Stage</div><div class="qi-value">Foreign or domestic manufacturer entering the U.S. market, or established manufacturer expanding into new channels or regions without existing infrastructure</div></div>
+        <div class="qi"><div class="qi-label">Product Categories</div><div class="qi-value">Commercial furniture, contract interiors, lighting, electrical distribution, or adjacent B2B manufacturing categories</div></div>
+        <div class="qi"><div class="qi-label">What You Need</div><div class="qi-value">Someone who has built this before — not a manager for what exists, but a builder for what does not exist yet</div></div>
+        <div class="qi"><div class="qi-label">Engagement Size</div><div class="qi-value">Manufacturers of any size — from market entry startups to established players restructuring underperforming channel programs</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Selected Engagements & Results</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">CAT Global (2026)</div><div class="qi-value">AI sales productivity training for national sales organization — tool adoption, pipeline discipline, execution efficiency</div></div>
+        <div class="qi"><div class="qi-label">Flash Furniture / ISG (2025–2026)</div><div class="qi-value">Rebuilt 600+ member dealer program; reintroduced personal outreach; built pipeline infrastructure; produced Salesforce-ready Price Book covering 8,907 SKUs</div></div>
+        <div class="qi"><div class="qi-label">MOD Power & Lighting (2024–2025)</div><div class="qi-value">Built East region from zero — 20+ reps, 20+ states, 40% YOY growth, 25% OEM adoption increase, 15% win rate improvement</div></div>
+        <div class="qi"><div class="qi-label">Tremain (2018–2024)</div><div class="qi-value">Built full U.S. presence from zero — 40+ reps, nationwide, 18 months. Generated $7–$10M over three years. OEM programs producing $2M+ annualized.</div></div>
+        <div class="qi"><div class="qi-label">AIS — AR, LA, MS (Early SSC)</div><div class="qi-value">Introduced AIS to the Arkansas, Louisiana, and Mississippi market generating $750K in first-year sales through direct dealer and institutional engagement</div></div>
+        <div class="qi"><div class="qi-label">Compatico Design Services (2007–2018)</div><div class="qi-value">Provided FF&E and design consultation services to dealer partners concurrently with Compatico employment, with full disclosure</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Industries Served</div>
+      <div class="qs-checklist">
+        <div class="check-item">Commercial Furniture & Contract Interiors</div>
+        <div class="check-item">Lighting & Electrical Distribution</div>
+        <div class="check-item">B2B Manufacturing — U.S. Market Entry</div>
+        <div class="check-item">FF&E & Hospitality</div>
+        <div class="check-item">Healthcare & Institutional</div>
+        <div class="check-item">Education & Government</div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">What Every Engagement Includes</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">Direct Principal Involvement</div><div class="qi-value">Patrick Green runs every engagement personally — not delegated to junior consultants</div></div>
+        <div class="qi"><div class="qi-label">Field Presence</div><div class="qi-value">Up to 75% travel availability; travel extensively with reps for dealer engagement and relationship building</div></div>
+        <div class="qi"><div class="qi-label">Existing Relationships</div><div class="qi-value">20+ years of rep, dealer, and A&D relationships across the Southeast and nationally</div></div>
+        <div class="qi"><div class="qi-label">Built Infrastructure</div><div class="qi-value">Every engagement leaves behind onboarding systems, coaching cadences, pricing frameworks, and pipeline tools — not just activity</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Geographic Coverage & Availability</div>
+      <div class="qs-grid">
+        <div class="qi"><div class="qi-label">U.S. Market Coverage</div><div class="qi-value strong">Nationwide — All 50 States</div></div>
+        <div class="qi"><div class="qi-label">Travel Availability</div><div class="qi-value strong">Up to 75%</div></div>
+        <div class="qi"><div class="qi-label">Engagement Structure</div><div class="qi-value strong">Retainer, Project, or Fractional — Flexible</div></div>
+        <div class="qi"><div class="qi-label">Base Location</div><div class="qi-value strong">Memphis, TN — Remote-Based</div></div>
+      </div>
+    </div>
+
+    <div class="qs">
+      <div class="qs-head">Tools & Systems</div>
+      <div class="qs-checklist">
+        <div class="check-item gold">Salesforce</div>
+        <div class="check-item gold">HubSpot</div>
+        <div class="check-item gold">Tableau</div>
+        <div class="check-item gold">Excel/VBA (Advanced)</div>
+        <div class="check-item gold">Salsify</div>
+        <div class="check-item gold">Giza/CAP</div>
+        <div class="check-item gold">PowerPoint</div>
+        <div class="check-item gold">AI Productivity Tools</div>
+      </div>
+    </div>
+
+    <div class="doc-notation">
+      To discuss an engagement, contact Patrick directly at green.patrickh@outlook.com or visit patrickhgreen.com. Full background and channel-specific resumes available on the site.
+    </div>
+
+  </div>
+      </div>
+    </div>
+
+  </div><!-- /quals-panels -->
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
+    </ul>
+  </footer>
+</div>
+
 <!-- ══════════════════════════════════════════════════════ BACKGROUND -->
 <div id="page-background" class="page">
   <div class="page-header">
@@ -1828,7 +2736,7 @@ footer {
       <p class="bio-lead">"I have spent 25 years doing one thing well: building the channel infrastructure that turns a manufacturer's product into national revenue."</p>
       <p class="bio-text">I started in Memphis in 1993, running my own furniture operation from a retail showroom. I learned to sell, learned to manage people, and learned what dealers and institutional buyers actually need from a vendor relationship. Those early years built the foundation for everything that came after.</p>
       <p class="bio-text">When Compatico recruited me in 2007, I took on national sales responsibility for a 40+ rep network producing $12–15M annually. I spent 11 years there building the systems, the coaching programs, and the dealer relationships that made that network perform. I also directed the Giza 2020/CAP design software program — reducing proposal time for dealers by 40% and increasing bid conversions by 25%. That experience taught me that the best channel leaders are also builders: they do not just manage what exists, they create the tools and infrastructure that make their networks more effective.</p>
-      <p class="bio-text">After Compatico, I took on the VP of Sales role at Tremain, a Mexico-based office furniture manufacturer with zero U.S. presence. I built their national rep network from scratch — 30+ partners across 42 states in 18 months — and generated $7–10M in revenue over three years. That engagement became the template for what Southern Solutions Consulting does today.</p>
+      <p class="bio-text">After Compatico, I took on the VP of Sales role at Tremain, a Mexico-based office furniture manufacturer with zero U.S. presence. I built their national rep network from scratch — 30+ partners across all 50 states in 18 months — and generated $7–10M in revenue over three years. That engagement became the template for what Southern Solutions Consulting does today.</p>
       <p class="bio-text">Since then, SSC has placed me inside organizations at the VP and Director level to build what they need: rep networks, dealer programs, pricing infrastructure, sales team training. Every engagement is different. The approach is the same.</p>
     </div>
 
@@ -1848,7 +2756,7 @@ footer {
           <div class="timeline-dates">Oct 2025 – Apr 2026</div>
           <div class="timeline-role">National Sales Manager, ISG Channel</div>
           <div class="timeline-co">The Ubique Group / Flash Furniture — via Southern Solutions Consulting</div>
-          <div class="timeline-text">Rebuilt dealer engagement for a 600+ member program and designed complete contract pricing infrastructure across 8,907 SKUs. Built custom pipeline tracking system managing 138+ active quotes with a 46% win rate.</div>
+          <div class="timeline-text">Rebuilt dealer engagement for a 600+ member ISG program and built a custom pipeline tracking system managing 138+ active quotes with a 46% win rate.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
@@ -1862,7 +2770,7 @@ footer {
           <div class="timeline-dates">Dec 2018 – Feb 2024</div>
           <div class="timeline-role">Vice President of Sales, USA</div>
           <div class="timeline-co">Tremain — via Southern Solutions Consulting</div>
-          <div class="timeline-text">Built Tremain's entire U.S. market presence from zero. Recruited and onboarded 40+ rep partners across all 42 states in 18 months, traveling extensively with reps for dealer engagement and relationship building. Generated $7–10M in revenue over three years and developed OEM programs producing $2M+ annually.</div>
+          <div class="timeline-text">Built Tremain's entire U.S. market presence from zero. Recruited and onboarded 40+ rep partners across all all 50 states in 18 months, traveling extensively with reps for dealer engagement and relationship building. Generated $7–10M in revenue over three years and developed OEM programs producing $2M+ annually.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
@@ -2052,7 +2960,7 @@ function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  document.getElementById('nav-' + id).classList.add('active');
+  if(document.getElementById('nav-' + id)) document.getElementById('nav-' + id).classList.add('active');
   window.scrollTo(0, 0);
 }
 
@@ -2125,14 +3033,139 @@ function printResume(id) {
   printWindow.document.write('.r-act-list{list-style:none;display:flex;flex-direction:column;gap:3px}');
   printWindow.document.write('.r-act-list li{font-size:10.5px;color:#8A8A82;padding-left:10px;position:relative}');
   printWindow.document.write('.r-act-list li::before{content:"–";position:absolute;left:0;color:#B8922A}');
-  printWindow.document.write('@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}');
-  printWindow.document.write('</style></head><body>');
+  printWindow.document.write('@media print{');
+  printWindow.document.write('body{-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:0;padding:0}');
+  printWindow.document.write('.resume-card{display:grid;grid-template-columns:240px 1fr;page-break-inside:avoid;break-inside:avoid;min-height:100vh}');
+  printWindow.document.write('.r-sidebar{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1E5C3A!important;color-adjust:exact}');
+  printWindow.document.write('.r-job{page-break-inside:avoid;break-inside:avoid}');
+  printWindow.document.write('.r-engagement{page-break-inside:avoid;break-inside:avoid}');
+  printWindow.document.write('section{page-break-inside:avoid;break-inside:avoid}');
+  printWindow.document.write('}');
+  printWindow.document.write('@page{size:letter;margin:0}');
+  printWindow.document.write('
+  /* ── QUALS ── */
+  .quals-tabs-wrap {
+    background: var(--light-gray);
+    padding: 0 80px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 0;
+  }
+  .quals-tab {
+    padding: 18px 28px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .quals-tab:hover { color: var(--navy); }
+  .quals-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .quals-panels { padding: 48px 80px 64px; }
+  .quals-panel { display: none; }
+  .quals-panel.active { display: block; }
+  .quals-doc { max-width: 960px; margin: 0 auto; background: var(--warm-white); box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+  .quals-doc-header { background: var(--navy); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .quals-doc-header h2 { font-family: "Playfair Display", serif; font-size: 22px; color: #fff; font-weight: 700; }
+  .quals-doc-header h2 span { color: var(--gold-light); }
+  .quals-doc-header .qdoc-type { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 5px; }
+  .quals-doc-header .qdoc-contact { text-align: right; font-size: 10px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .quals-doc-header .qdoc-contact a { color: var(--gold-light); text-decoration: none; }
+  .quals-print-bar { background: var(--light-gray); padding: 10px 40px; display: flex; justify-content: flex-end; border-bottom: 1px solid var(--rule); }
+  .quals-doc .doc-body { padding: 28px 40px 40px; display: flex; flex-direction: column; gap: 18px; }
+  .quals-doc .qs-head { font-size: 8.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border-bottom: 1.5px solid var(--rule); padding-bottom: 4px; margin-bottom: 10px; }
+  .quals-doc .qs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+  .quals-doc .qi { display: flex; flex-direction: column; gap: 2px; }
+  .quals-doc .qi-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); }
+  .quals-doc .qi-value { font-size: 12px; color: var(--dark-text); font-weight: 500; line-height: 1.4; }
+  .quals-doc .qi-value.strong { font-size: 13px; color: var(--navy); font-weight: 700; }
+  .quals-doc .qs-checklist { display: flex; flex-wrap: wrap; gap: 5px; }
+  .quals-doc .check-item { display: flex; align-items: center; font-size: 11px; color: var(--dark-text); background: var(--light-gray); padding: 4px 10px; border-left: 3px solid var(--navy); }
+  .quals-doc .check-item.gold { border-left-color: var(--gold); }
+  .quals-doc .check-item.blue { border-left-color: #2D6A8F; }
+  .quals-doc .doc-notation { background: #F0ECD8; border-left: 3px solid var(--gold); padding: 8px 14px; font-size: 10px; color: #5A4A1A; font-style: italic; }
+  @media (max-width: 768px) {
+    .quals-tabs-wrap { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .quals-tab { padding: 14px 16px; font-size: 10px; }
+    .quals-panels { padding: 24px 16px 40px; }
+    .quals-doc .qs-grid { grid-template-columns: 1fr; }
+    .quals-doc-header { flex-direction: column; gap: 12px; }
+    .quals-doc-header .qdoc-contact { text-align: left; }
+  }
+  @media print {
+    .quals-panel { display: none !important; }
+    .quals-panel.print-target { display: block !important; }
+    .quals-tabs-wrap, .page-header, .notation-bar { display: none !important; }
+  }
+</style></head><body>');
   printWindow.document.write(panel.outerHTML);
   printWindow.document.write('</body></html>');
   printWindow.document.close();
   printWindow.focus();
   setTimeout(function(){ printWindow.print(); }, 800);
 }
+
+function switchQualsTab(id, el) {
+  document.querySelectorAll('.quals-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.quals-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('qpanel-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+function openQuals(id) {
+  showPage('qualifications');
+  setTimeout(() => {
+    document.querySelectorAll('.quals-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.quals-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('qpanel-' + id).classList.add('active');
+    const tabs = document.querySelectorAll('.quals-tab');
+    const map = { master: 0, furniture: 1, lighting: 2, channel: 3, consulting: 4 };
+    if (tabs[map[id]]) tabs[map[id]].classList.add('active');
+  }, 50);
+}
+
+function printQuals(id) {
+  var panel = document.getElementById('qpanel-' + id);
+  if (!panel) { window.print(); return; }
+  var printWindow = window.open('', '_blank', 'width=900,height=700');
+  printWindow.document.write('<!DOCTYPE html><html><head>');
+  printWindow.document.write('<meta charset="UTF-8"><title>Patrick H. Green — Qualifications</title>');
+  printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">');
+  printWindow.document.write('<style>');
+  printWindow.document.write('*{margin:0;padding:0;box-sizing:border-box}');
+  printWindow.document.write('body{font-family:Inter,sans-serif;background:white;color:#1A1A18;font-size:13px;line-height:1.5}');
+  printWindow.document.write('.quals-doc-header{background:#1E5C3A;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #B8922A;-webkit-print-color-adjust:exact;print-color-adjust:exact}');
+  printWindow.document.write('.quals-doc-header h2{font-family:"Playfair Display",serif;font-size:22px;color:#fff;font-weight:700}');
+  printWindow.document.write('.quals-doc-header h2 span{color:#D4A843}');
+  printWindow.document.write('.qdoc-type{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:5px}');
+  printWindow.document.write('.qdoc-contact{text-align:right;font-size:10px;color:rgba(255,255,255,.7);line-height:1.7}');
+  printWindow.document.write('.qdoc-contact a{color:#D4A843;text-decoration:none}');
+  printWindow.document.write('.quals-print-bar{display:none}');
+  printWindow.document.write('.doc-body{padding:28px 40px 40px;display:flex;flex-direction:column;gap:18px}');
+  printWindow.document.write('.qs-head{font-size:8.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#B8922A;border-bottom:1.5px solid #A8CCA8;padding-bottom:4px;margin-bottom:10px}');
+  printWindow.document.write('.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px}');
+  printWindow.document.write('.qi{display:flex;flex-direction:column;gap:2px}');
+  printWindow.document.write('.qi-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A82}');
+  printWindow.document.write('.qi-value{font-size:12px;color:#1A1A18;font-weight:500;line-height:1.4}');
+  printWindow.document.write('.qi-value.strong{font-size:13px;color:#1E5C3A;font-weight:700}');
+  printWindow.document.write('.qs-checklist{display:flex;flex-wrap:wrap;gap:5px}');
+  printWindow.document.write('.check-item{font-size:11px;color:#1A1A18;background:#F2F2EF;padding:4px 10px;border-left:3px solid #1E5C3A;-webkit-print-color-adjust:exact;print-color-adjust:exact}');
+  printWindow.document.write('.check-item.gold{border-left-color:#B8922A}');
+  printWindow.document.write('.check-item.blue{border-left-color:#2D6A8F}');
+  printWindow.document.write('.doc-notation{background:#F0ECD8;border-left:3px solid #B8922A;padding:8px 14px;font-size:10px;color:#5A4A1A;font-style:italic}');
+  printWindow.document.write('@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}');
+  printWindow.document.write('</style></head><body>');
+  printWindow.document.write(panel.querySelector(".quals-doc").outerHTML);
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(function(){ printWindow.print(); }, 800);
+}
+
 </script>
 </body>
 </html>
