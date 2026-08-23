@@ -1040,6 +1040,114 @@ footer {
   .resume-panel.print-target { display: block !important; }
   .resume-card { box-shadow: none; }
 }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 20px;
+    }
+    .nav-brand { font-size: 14px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-left {
+      padding: 48px 28px 40px;
+      order: 2;
+    }
+
+    .hero-right {
+      min-height: 320px;
+      order: 1;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-photo-border { display: none; }
+
+    .hero-name { font-size: 42px; }
+
+    .hero-statement { font-size: 15px; }
+
+    .stats-strip {
+      padding: 24px 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat-item { border-right: none; padding: 0; }
+    .stat-number { font-size: 28px; }
+    .stat-label { font-size: 10px; }
+
+    .home-intro { padding: 40px 24px; }
+    .section-title { font-size: 24px; }
+
+    .channels-grid {
+      padding: 32px 24px;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    .page-header { padding: 40px 24px 32px; }
+    .page-header-title { font-size: 28px; }
+
+    .notation-bar { padding: 12px 24px; }
+
+    .resume-tabs-wrap {
+      padding: 0 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .resume-tab { padding: 14px 16px; font-size: 10px; white-space: nowrap; }
+
+    .resume-panels { padding: 24px 16px 40px; }
+
+    .resume-card {
+      grid-template-columns: 1fr;
+    }
+
+    .r-sidebar {
+      padding: 32px 24px;
+    }
+
+    .r-main { padding: 28px 24px; }
+
+    .bg-body { padding: 40px 24px; }
+    .bio-lead { font-size: 18px; }
+
+    .content-body { padding: 40px 24px; }
+    .series-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .content-cta {
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 20px;
+    }
+
+    .contact-body { grid-template-columns: 1fr; }
+    .contact-left { padding: 48px 28px; }
+    .contact-right { padding: 40px 28px; }
+    .contact-intro { font-size: 22px; }
+
+    footer {
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
 </style>
 </head>
 <body>
