@@ -1217,6 +1217,128 @@ footer {
     .quals-panel.print-target { display: block !important; }
     .quals-tabs-wrap, .page-header, .notation-bar { display: none !important; }
   }
+
+/* ── PROJECTS ── */
+.projects-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 48px 96px;
+}
+.projects-header {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 32px;
+  margin-bottom: 64px;
+}
+.projects-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.projects-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.projects-intro {
+  font-size: 15px;
+  color: var(--mid-gray);
+  max-width: 640px;
+  line-height: 1.7;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.proj-card {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.proj-card-top {
+  background: var(--navy-deep);
+  padding: 28px 32px 24px;
+}
+.proj-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  background: var(--gold);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+.proj-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.proj-client {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.06em;
+}
+.proj-card-body {
+  padding: 28px 32px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.proj-outcome {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  border-left: 3px solid var(--gold);
+  padding-left: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.proj-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  flex: 1;
+}
+.proj-stack {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.proj-pill {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  background: var(--light-gray);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.proj-solo {
+  grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+  .projects-body { padding: 48px 24px 64px; }
+  .projects-headline { font-size: 28px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .proj-solo { grid-column: 1; }
+}
 </style>
 </head>
 <body>
@@ -1230,6 +1352,7 @@ footer {
     <li><a onclick="showPage('background')" id="nav-background">Background</a></li>
     <li><a onclick="showPage('qualifications')" id="nav-qualifications">Qualifications</a></li>
     <li><a onclick="showPage('content')" id="nav-content">Content</a></li>
+    <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
 </nav>
@@ -1314,6 +1437,7 @@ footer {
       <li><a onclick="showPage('resumes')">Resumes</a></li>
       <li><a onclick="showPage('background')">Background</a></li>
       <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a onclick="showPage('contact')">Contact</a></li>
       <li><a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank">LinkedIn</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
@@ -1883,6 +2007,7 @@ footer {
       <li><a onclick="showPage('home')">Home</a></li>
       <li><a onclick="showPage('background')">Background</a></li>
       <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a onclick="showPage('contact')">Contact</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
     </ul>
@@ -2732,6 +2857,7 @@ footer {
       <li><a onclick="showPage('resumes')">Resumes</a></li>
       <li><a onclick="showPage('background')">Background</a></li>
       <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a onclick="showPage('contact')">Contact</a></li>
       <li><a href="https://www.linkedin.com/in/patrick-green-343a0810/" target="_blank">LinkedIn</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
@@ -2819,6 +2945,7 @@ footer {
       <li><a onclick="showPage('home')">Home</a></li>
       <li><a onclick="showPage('resumes')">Resumes</a></li>
       <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a onclick="showPage('contact')">Contact</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
     </ul>
@@ -2897,6 +3024,166 @@ footer {
       <li><a onclick="showPage('home')">Home</a></li>
       <li><a onclick="showPage('resumes')">Resumes</a></li>
       <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
+    </ul>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ PROJECTS -->
+<div id="page-projects" class="page">
+  <div class="projects-body">
+
+    <div class="projects-header">
+      <div class="projects-eyebrow">Built Work</div>
+      <h1 class="projects-headline">What I Build With AI</h1>
+      <p class="projects-intro">These are working tools — not mockups. Each one started as a real sales problem and ended as something a team actually uses. Built with Claude AI, Excel VBA, and HTML. No outside developers.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- SSC Sales Platform -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">HTML / CRM</div>
+          <div class="proj-name">SSC Sales Platform</div>
+          <div class="proj-client">White-label · Multi-channel · Licensable</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">A fully browser-based CRM that configures itself for any B2B sales channel — freight, furniture, lighting, real estate, and more — with a single settings change.</div>
+          <p class="proj-desc">Built from scratch in HTML, CSS, and JavaScript. No server. No database. Runs from a URL. Includes role-based login, prospect hub with ZoomInfo import, cadence engine, AI-generated call scripts, pipeline tracking, commission dashboards, rep leaderboard, and client-view access. Channels swap vocabulary and module defaults per industry. Currently licensed to clients in freight logistics and commercial furniture.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">HTML/CSS/JS</span>
+            <span class="proj-pill">Claude AI</span>
+            <span class="proj-pill">localStorage</span>
+            <span class="proj-pill">Role-based Auth</span>
+            <span class="proj-pill">Netlify</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAT Prospect Hub -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">HTML / Prospect Tool</div>
+          <div class="proj-name">CAT Prospect Hub</div>
+          <div class="proj-client">CAT Global Memphis · Freight &amp; Logistics</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">Three freight reps went from a shared spreadsheet to a structured prospect system — ZoomInfo import, cadence tracking, AI call scripts, and a call queue — in six weeks.</div>
+          <p class="proj-desc">Custom-built for CAT Global's Memphis sales team. Reps log into a URL, see their assigned prospects from ZoomInfo scrubs, follow a business-day cadence, generate Claude-powered call scripts and voicemails, and log every touch. Admins see all reps. The system replaced manual Excel tracking with zero third-party CRM cost. Patrick controls the codebase and pushes updates via Netlify drag-and-drop.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">HTML/CSS/JS</span>
+            <span class="proj-pill">Claude AI API</span>
+            <span class="proj-pill">ZoomInfo</span>
+            <span class="proj-pill">Netlify</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Coaching Email System -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">VBA / Automation</div>
+          <div class="proj-name">Sales Coaching Email System</div>
+          <div class="proj-client">CAT Global Memphis · Freight &amp; Logistics</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">Six weeks of structured sales coaching, delivered automatically — weekly emails sent to each rep via Task Scheduler, replies summarized by Claude AI and logged without any manual work.</div>
+          <p class="proj-desc">Built in Excel VBA with Outlook automation and the Anthropic API. Task Scheduler triggers the workbook weekly, which sends personalized coaching emails to three reps, monitors their replies, passes them through Claude for summaries and sentiment, and logs everything to a tracking sheet. Paid $6k for the first engagement. Now the template for a repeatable coaching product.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">Excel VBA</span>
+            <span class="proj-pill">Outlook Automation</span>
+            <span class="proj-pill">Claude AI API</span>
+            <span class="proj-pill">Task Scheduler</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISG Quote & Pipeline Tracker -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">Excel VBA</div>
+          <div class="proj-name">Quote &amp; Pipeline Tracker</div>
+          <div class="proj-client">ISG · Commercial Furniture</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">Replaced a pile of disconnected quote spreadsheets with a single system that tracks every open quote, stage, and projected close — plus a live pipeline dashboard by rep and product line.</div>
+          <p class="proj-desc">Built in Excel VBA for a commercial furniture dealer. Handles quote entry, stage tracking, win/loss logging, and auto-generating formatted quote request emails to manufacturers. Includes a Flash Performance Dashboard showing each rep's pipeline value, close rate, and month-to-date attainment. Used daily by the sales team as the single source of truth for open business.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">Excel VBA</span>
+            <span class="proj-pill">Pivot Dashboard</span>
+            <span class="proj-pill">Outlook Integration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Consolidation -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">Excel VBA</div>
+          <div class="proj-name">Contact Consolidation Engine</div>
+          <div class="proj-client">SSC · Personal CRM Infrastructure</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">6,200+ contacts scattered across six sources — LinkedIn exports, Outlook, legacy CRMs — merged, deduplicated, and scored into one clean master file in a single session.</div>
+          <p class="proj-desc">Built in Excel VBA to solve a real problem: 25 years of contacts living in disconnected systems. The tool ingests multiple CSV and XLSX sources, normalizes name/company/email fields, flags duplicates by fuzzy match, scores contacts by recency and completeness, and outputs a ranked master list. Now the foundation for all SSC outreach and job search targeting.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">Excel VBA</span>
+            <span class="proj-pill">Fuzzy Matching</span>
+            <span class="proj-pill">Data Normalization</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job Search Log -->
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <div class="proj-tag">Excel VBA</div>
+          <div class="proj-name">Job Search Outreach Log</div>
+          <div class="proj-client">Personal · Active Job Search</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">Tracks every application, warm outreach, and recruiter conversation in one place — with status, follow-up dates, and a dashboard showing pipeline by channel and stage.</div>
+          <p class="proj-desc">Built in Excel VBA as a personal CRM for an active executive job search. Logs each opportunity with company, role, source, contact, current status, and next action date. Auto-highlights overdue follow-ups. Pivot dashboard shows outreach volume by week, conversion by channel (LinkedIn, recruiter, warm intro), and stage distribution across the pipeline. Used daily throughout the search.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">Excel VBA</span>
+            <span class="proj-pill">Conditional Formatting</span>
+            <span class="proj-pill">Pivot Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- patrickhgreen.com -->
+      <div class="proj-card proj-solo">
+        <div class="proj-card-top">
+          <div class="proj-tag">HTML / Web</div>
+          <div class="proj-name">patrickhgreen.com — This Site</div>
+          <div class="proj-client">Personal Professional Website · GitHub Pages</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-outcome">A single-page professional site with four channel-specific resumes, full career background, six LinkedIn series, and a projects portfolio — built entirely in HTML without a CMS, framework, or developer.</div>
+          <p class="proj-desc">Designed and built from scratch in collaboration with Claude AI. Single HTML file with a JavaScript page router, print-optimized resume layouts, and a consistent forest green and gold design system. Hosted on GitHub Pages at zero cost. Every update is a drag-and-drop deploy. Built to prove the point: with AI as a creative and technical partner, a sales executive can build tools that used to require a development team.</p>
+          <div class="proj-stack">
+            <span class="proj-pill">HTML/CSS/JS</span>
+            <span class="proj-pill">Claude AI</span>
+            <span class="proj-pill">GitHub Pages</span>
+            <span class="proj-pill">No Framework</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div><!-- /projects-body -->
+
+  <footer>
+    <div class="footer-name">Patrick H. Green — patrickhgreen.com</div>
+    <ul class="footer-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('resumes')">Resumes</a></li>
+      <li><a onclick="showPage('background')">Background</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a onclick="showPage('contact')">Contact</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
     </ul>
@@ -2966,6 +3253,7 @@ footer {
       <li><a onclick="showPage('resumes')">Resumes</a></li>
       <li><a onclick="showPage('background')">Background</a></li>
       <li><a onclick="showPage('content')">Content</a></li>
+      <li><a onclick="showPage('projects')">Projects</a></li>
       <li><a href="https://www.southernsolutionsconsulting.com" target="_blank">SSC</a></li>
     </ul>
   </footer>
